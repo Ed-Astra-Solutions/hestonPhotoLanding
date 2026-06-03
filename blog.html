@@ -51,16 +51,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #C9A962;
-            --gold-light: #D4B978;
+            --gold: #C9A87C;
+            --gold-light: #E8D5B7;
+            --gold-dark: #8B7355;
+            --cream: #FAF7F2;
             --charcoal: #2C2C2C;
-            --deep-black: #1A1A1A;
-            --soft-black: #242424;
-            --white: #FAFAFA;
-            --off-white: #F5F0EB;
-            --text-muted: #8A8A8A;
-            --text-light: #B8B8B8;
-            --border-subtle: rgba(201, 169, 98, 0.15);
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #6B6B6B;
+            --text-light: #8A8A8A;
+            --border-subtle: rgba(201, 168, 124, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,8 +69,8 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--deep-black);
-            color: var(--white);
+            background: var(--cream);
+            color: var(--text-dark);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
@@ -89,89 +89,188 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(44, 44, 44, 0.98);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.4s ease;
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            height: 70px;
+            align-items: center;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.75rem;
+            text-decoration: none;
         }
 
         .logo-img {
-            height: 38px;
+            height: 50px;
             width: auto;
         }
 
         .logo h1 {
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: 0.02em;
         }
 
         .logo h1 span { color: var(--gold); }
 
         nav ul {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav ul > li {
+            display: flex;
             align-items: center;
         }
 
         nav a {
+            text-decoration: none;
+            color: var(--white);
             font-size: 0.8rem;
+            font-weight: 260;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            transition: color 0.3s;
-            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
         }
 
         nav a:hover { color: var(--gold); }
 
-        .nav-cta {
-            background: var(--gold);
-            color: var(--deep-black) !important;
-            padding: 8px 20px;
-            border-radius: 2px;
-            font-weight: 600;
+        nav a:hover::after { width: 100%; }
+
+        /* Dropdown Menu */
+        nav li.has-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-cta:hover { background: var(--gold-light); }
+        nav li.has-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0.5rem 0;
+        }
 
-        /* Mobile Menu */
+        .dropdown-arrow {
+            font-size: 0.6em;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        nav li.has-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+
+        nav li.has-dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            border: 1px solid rgba(201, 168, 124, 0.7);
+            border-radius: 8px;
+            min-width: 200px;
+            padding: 0;
+            margin: 0;
+            gap: 0;
+            list-style: none;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        nav li.has-dropdown:hover .dropdown-menu { display: flex; }
+
+        .dropdown-menu li { position: relative; margin: 0; padding: 0; }
+
+        .dropdown-menu li + li::before {
+            content: '';
+            display: block;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(201, 168, 124, 0.5), transparent);
+            margin: 0 14px;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 9px 20px;
+            margin: 0;
+            color: #ffffff !important;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .dropdown-menu li a::after { display: none; }
+
+        .dropdown-menu li a:hover {
+            color: var(--gold) !important;
+            background: rgba(201, 168, 124, 0.12);
+        }
+
+        /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
+            z-index: 1001;
         }
 
         .mobile-menu-toggle span {
-            width: 24px;
+            width: 25px;
             height: 2px;
             background: var(--white);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
+
+        .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* Hero Banner */
         .blog-hero {
             padding: 140px 2rem 60px;
             text-align: center;
-            background: linear-gradient(135deg, var(--deep-black) 0%, var(--soft-black) 50%, var(--deep-black) 100%);
+            background: linear-gradient(135deg, var(--cream) 0%, #F0EBE3 50%, var(--cream) 100%);
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -187,7 +286,7 @@
 
         .blog-hero h1 {
             font-size: 3rem;
-            color: var(--white);
+            color: var(--text-dark);
             margin-bottom: 1rem;
         }
 
@@ -231,7 +330,7 @@
         .filter-btn:hover,
         .filter-btn.active {
             background: var(--gold);
-            color: var(--deep-black);
+            color: var(--charcoal);
             border-color: var(--gold);
         }
 
@@ -249,7 +348,7 @@
         }
 
         .blog-card {
-            background: var(--soft-black);
+            background: var(--white);
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
@@ -284,8 +383,8 @@
             position: absolute;
             top: 12px;
             left: 12px;
-            background: rgba(201, 169, 98, 0.9);
-            color: var(--deep-black);
+            background: rgba(201, 168, 124, 0.9);
+            color: var(--charcoal);
             padding: 4px 12px;
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -313,14 +412,14 @@
 
         .blog-card-body h3 {
             font-size: 1.3rem;
-            color: var(--white);
+            color: var(--text-dark);
             margin-bottom: 0.75rem;
             line-height: 1.3;
             transition: color 0.3s;
         }
 
         .blog-card:hover .blog-card-body h3 {
-            color: var(--gold);
+            color: var(--gold-dark);
         }
 
         .blog-card-body p {
@@ -409,7 +508,7 @@
             left: 0;
             right: 0;
             height: 60%;
-            background: linear-gradient(to top, var(--deep-black), transparent);
+            background: linear-gradient(to top, var(--cream), transparent);
         }
 
         .blog-post-header {
@@ -428,7 +527,7 @@
 
         .blog-post-header h1 {
             font-size: 2.5rem;
-            color: var(--white);
+            color: var(--text-dark);
             margin-bottom: 1rem;
             line-height: 1.2;
         }
@@ -452,18 +551,18 @@
 
         .blog-post-content h2 {
             font-size: 1.8rem;
-            color: var(--white);
+            color: var(--text-dark);
             margin: 2rem 0 1rem;
         }
 
         .blog-post-content h3 {
             font-size: 1.4rem;
-            color: var(--gold-light);
+            color: var(--gold-dark);
             margin: 1.5rem 0 0.75rem;
         }
 
         .blog-post-content p {
-            color: var(--text-light);
+            color: var(--text-muted);
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
@@ -476,7 +575,7 @@
         }
 
         .blog-post-content ul, .blog-post-content ol {
-            color: var(--text-light);
+            color: var(--text-muted);
             padding-left: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -490,8 +589,8 @@
             border-left: 3px solid var(--gold);
             padding: 1rem 1.5rem;
             margin: 1.5rem 0;
-            background: rgba(201, 169, 98, 0.05);
-            color: var(--text-light);
+            background: rgba(201, 168, 124, 0.08);
+            color: var(--text-muted);
             font-style: italic;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.15rem;
@@ -587,24 +686,214 @@
         /* Footer */
         footer {
             background: var(--charcoal);
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border-subtle);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A87C' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span { color: var(--gold); }
+
+        .footer-brand p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social a {
+            height: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0 0.75rem;
+            font-size: 0.85rem;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover { background: var(--gold); border-color: var(--gold); }
+
+        .footer-social a svg { width: 18px; height: 18px; fill: var(--white); }
+
+        .footer-contact-inline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-contact-inline a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-inline a:hover { color: var(--gold); }
+        .footer-contact-inline a svg { stroke: var(--gold); flex-shrink: 0; }
+
+        .recaptcha-notice {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .recaptcha-notice a {
+            color: var(--gold-light);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold-light);
+            transition: all 0.3s ease;
+        }
+
+        .recaptcha-notice a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+        .footer-links h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--gold); padding-left: 0.5rem; }
+
+        .footer-newsletter h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form { display: flex; gap: 0.75rem; }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .newsletter-form input:focus { outline: none; border-color: var(--gold); }
+
+        .newsletter-form button {
+            padding: 0.875rem 1.5rem;
+            background: var(--gold);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover { background: var(--gold-dark); }
+        .newsletter-form button svg { width: 18px; height: 18px; stroke: var(--white); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .footer-copyright {
-            color: var(--text-muted);
-            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
         }
 
-        .footer-copyright a {
-            color: var(--gold);
+        .footer-legal { display: flex; gap: 2rem; }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover { color: var(--gold); }
+
+        @media (max-width: 1200px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-brand { grid-column: span 2; }
+            .footer-contact-inline { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-legal { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .footer-brand { grid-column: span 2; }
+            .footer-newsletter { grid-column: span 2; }
         }
 
         /* Responsive */
@@ -614,20 +903,30 @@
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-toggle { display: flex; }
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(26, 26, 26, 0.98);
-                flex-direction: column;
-                padding: 1rem 2rem 2rem;
-                gap: 1rem;
-                border-bottom: 1px solid var(--border-subtle);
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--charcoal);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.4s ease;
+                z-index: 1000;
             }
-            nav ul.open { display: flex; }
+            nav.active { right: 0; }
+            nav ul {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            nav a {
+                font-size: 1.25rem;
+                padding: 0.75rem 1rem;
+            }
+            .mobile-menu-toggle { display: flex; }
             .blog-hero h1 { font-size: 2rem; }
             .blog-hero { padding: 120px 1.5rem 40px; }
             .blog-post-header h1 { font-size: 1.8rem; }
@@ -645,24 +944,35 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="header-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Heston Photo" class="logo-img">
+                <h1>Heston<span>Photo</span></h1>
             </a>
-            <nav>
-                <div class="mobile-menu-toggle" onclick="this.classList.toggle('active'); document.querySelector('nav ul').classList.toggle('open');">
-                    <span></span><span></span><span></span>
-                </div>
+
+            <nav id="nav">
                 <ul>
-                    <li><a href="index.html#archives">Portfolio</a></li>
-                    <li><a href="index.html#films">Films</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="blog.html" style="color: var(--gold);">Blog</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#archives">Archives</a></li>
+                    <li><a href="index.html#prewedding">Pre-Wedding</a></li>
+                    <li class="has-dropdown">
+                        <a href="index.html#services">Services <span class="dropdown-arrow">&#9660;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="wedding-photography.html">Wedding Photography</a></li>
+                            <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
+                        </ul>
+                    </li>
                     <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+                    <li><a href="blog.html" style="color: var(--gold);">Blog</a></li>
                 </ul>
             </nav>
+
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
@@ -701,11 +1011,84 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <p class="footer-copyright">&copy; 2026 <a href="index.html">Heston Photo</a> Photography. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Heston<span>Photo</span></h3>
+                    <p>At Heston Photo Photography, we believe that every wedding is a story waiting to be told—authentically, artistically, and with heart.</p>
+                    <div class="footer-contact-inline">
+                        <a href="tel:+442084329898"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>020 8432 9898</a>
+                        <a href="mailto:info@hestonphoto.co.uk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@hestonphoto.co.uk</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/hestonphoto" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            @hestonphoto
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#archives">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="wedding-photography.html">Wedding Photography</a></li>
+                        <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
+                        <li><a href="wedding-photography.html#specialisations">Destination Weddings</a></li>
+                        <li><a href="https://lifestyle.hestonphoto.co.uk/" target="_blank" rel="noopener">Heston Lifestyle</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Stay Inspired</h4>
+                    <p>Subscribe to receive wedding inspiration, tips, and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Heston Photo Photography. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="/terms.html">Terms of Use</a>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/cookies.html">Cookie Policy</a>
+                    <span class="recaptcha-notice">This site is protected by <a href="https://www.google.com/recaptcha/about/" target="_blank" rel="noopener">reCAPTCHA</a> and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</span>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const nav = document.getElementById('nav');
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
         const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
         const API_BASE_URL = isLocalhost ? 'http://localhost:3000' : 'https://hestonadminapi.edastra.in';
 

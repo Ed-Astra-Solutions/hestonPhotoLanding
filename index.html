@@ -692,15 +692,7 @@
 
         /* Shiny overlay effect */
         .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 70% 20%, rgba(201, 168, 124, 0.05) 0%, transparent 40%),
-                radial-gradient(ellipse 50% 30% at 30% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-            z-index: 0;
-            pointer-events: none;
+            display: none;
         }
 
         .hero-overlay {
@@ -732,9 +724,9 @@
 
         .hero-logo h1 {
             font-size: var(--hero-title-size);
-            color: #000000;
-            letter-spacing: 0.06em;
-            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.12em;
+            font-weight: 300;
             text-align: center;
             margin: 0;
             text-shadow: none;
@@ -742,18 +734,19 @@
         }
 
         .hero-logo h1 span {
-            color: #000000;
+            color: var(--gold);
+            font-weight: 500;
         }
 
         .hero-tagline {
             font-family: 'Montserrat', sans-serif;
             font-size: var(--hero-tagline-size);
-            font-weight: 300;
-            color: var(--gold-dark);
-            letter-spacing: clamp(0.1em, 0.5vmin, 0.35em);
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: clamp(0.15em, 0.6vmin, 0.4em);
             text-transform: uppercase;
             text-align: center;
-            opacity: 0.9;
+            opacity: 0.8;
         }
 
         /* Spacer to push gallery to bottom */
@@ -768,7 +761,7 @@
             width: 100%;
             overflow: hidden;
             padding-bottom: var(--gallery-padding);
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+            background: none;
             flex-shrink: 0;
         }
 
@@ -799,7 +792,7 @@
             background: var(--charcoal);
             border-radius: clamp(6px, 1vmin, 12px);
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
@@ -907,7 +900,7 @@
 
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            color: var(--white);
+            color: var(--charcoal);
             margin-bottom: 2rem;
             line-height: 1.15;
             font-weight: 400;
@@ -990,7 +983,8 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            color: var(--gold);
+            color: var(--charcoal);
+            opacity: 0.45;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -2877,13 +2871,17 @@
         }
 
         .contact-social a {
-            width: 50px;
             height: 50px;
-            border-radius: 50%;
+            border-radius: 25px;
             border: 1px solid var(--gold-light);
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0.5rem;
+            padding: 0 1rem;
+            font-size: 0.9rem;
+            color: var(--gold);
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
@@ -3043,13 +3041,17 @@
         }
 
         .footer-social a {
-            width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0.4rem;
+            padding: 0 0.75rem;
+            font-size: 0.85rem;
+            color: var(--white);
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
@@ -4079,8 +4081,8 @@
             }
 
             .contact-social a {
-                width: 44px;
                 height: 44px;
+                border-radius: 22px;
             }
 
             .film-showcase {
@@ -4348,8 +4350,8 @@
             }
 
             .contact-social a {
-                width: 40px;
                 height: 40px;
+                border-radius: 20px;
             }
 
             .contact-social a svg {
@@ -4409,8 +4411,8 @@
             }
 
             .footer-social a {
-                width: 36px;
                 height: 36px;
+                border-radius: 18px;
             }
 
             .footer-social a svg {
@@ -4614,8 +4616,8 @@
             }
 
             .footer-social a {
-                width: 38px;
                 height: 38px;
+                border-radius: 19px;
             }
 
             .preloader-logo {
@@ -4708,8 +4710,8 @@
             }
 
             .contact-social a {
-                width: 36px;
                 height: 36px;
+                border-radius: 18px;
             }
 
             .footer-grid {
@@ -4749,8 +4751,8 @@
             }
 
             .footer-social a {
-                width: 34px;
                 height: 34px;
+                border-radius: 17px;
             }
 
             .footer-copyright {
@@ -5536,6 +5538,7 @@
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
+                            @hestonphoto
                         </a>
                     </div>
                 </div>
@@ -5544,22 +5547,22 @@
                     <h3>Request Availability</h3>
                     <p>Fill out the form below and we'll get back to you within 24 hours.</p>
 
-                    <form id="contactForm">
+                    <form id="contactForm" novalidate>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Your Name <span>*</span></label>
-                                <input type="text" name="name" required placeholder="Full name">
+                                <input type="text" name="name" required placeholder="Full name" maxlength="100" minlength="2">
                             </div>
                             <div class="form-group">
                                 <label>Email <span>*</span></label>
-                                <input type="email" name="email" required placeholder="your@email.com">
+                                <input type="email" name="email" required placeholder="your@email.com" maxlength="254">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Phone</label>
-                                <input type="tel" name="phone" placeholder="+44 20 1234 5678">
+                                <input type="tel" name="phone" placeholder="+44 20 1234 5678" maxlength="20" pattern="^[+\d\s\(\)\-]{7,20}$">
                             </div>
                             <div class="form-group">
                                 <label>Wedding Date</label>
@@ -5570,7 +5573,7 @@
                         <div class="form-row">
                             <div class="form-group full-width">
                                 <label>Wedding Location</label>
-                                <input type="text" name="location" placeholder="City, Venue">
+                                <input type="text" name="location" placeholder="City, Venue" maxlength="200">
                             </div>
                         </div>
 
@@ -5590,7 +5593,7 @@
                         <div class="form-row">
                             <div class="form-group full-width">
                                 <label>Tell Us About Your Wedding</label>
-                                <textarea name="message" placeholder="Share your vision, style preferences, and any special requirements..."></textarea>
+                                <textarea name="message" placeholder="Share your vision, style preferences, and any special requirements..." maxlength="1000"></textarea>
                             </div>
                         </div>
 
@@ -5617,13 +5620,14 @@
                     <p>At Heston Photo Photography, we believe that every wedding is a story waiting to be told—authentically, artistically, and with heart.</p>
                     <div class="footer-contact-inline">
                         <a href="tel:+442084329898"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>020 8432 9898</a>
-                        <a href="mailto:info.hestonphoto@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info.hestonphoto@gmail.com</a>
+                        <a href="mailto:info@hestonphoto.co.uk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@hestonphoto.co.uk</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/hestonphoto" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
+                            @hestonphoto
                         </a>
                     </div>
                 </div>
@@ -5645,7 +5649,7 @@
                         <li><a href="wedding-photography.html">Wedding Photography</a></li>
                         <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
                         <li><a href="wedding-photography.html#specialisations">Destination Weddings</a></li>
-                        <li><a href="#services">Photo Albums</a></li>
+                        <li><a href="https://lifestyle.hestonphoto.co.uk/" target="_blank" rel="noopener">Heston Lifestyle</a></li>
                     </ul>
                 </div>
 
@@ -5720,7 +5724,7 @@
                 if (loaded) return;
                 loaded = true;
                 var s = document.createElement('script');
-                s.src = 'https://www.google.com/recaptcha/api.js?render=6LevLlIsAAAAACA4B0mAG0wvTCNnubTNA-OgUgai';
+                s.src = 'https://www.google.com/recaptcha/api.js?render=6Lc-IwstAAAAAG6RKzXebPO1AIyfJa88YFMt3cAO';
                 document.head.appendChild(s);
             }
             // Load on first scroll or after 8 seconds
@@ -6867,7 +6871,7 @@
             if (_heroReady && _archivesReady && _minTimeElapsed) dismissPreloader();
         }
 
-        // Minimum preloader display time (3.5s) so visitors can see the photo grid
+        // Minimum preloader display time
         setTimeout(() => { _minTimeElapsed = true; checkCriticalReady(); }, 2000);
 
         // Parallel API fetcher with cache
@@ -6895,8 +6899,8 @@
             }));
         })();
 
-        // Guaranteed preloader dismiss after 5s max (safety net if APIs are slow)
-        setTimeout(dismissPreloader, 3000);
+        // Guaranteed preloader dismiss after 4s max (safety net if APIs are slow)
+        setTimeout(dismissPreloader, 4000);
 
         // Apply home content from pre-fetched data
         function applyHomeContent(data) {
@@ -6910,6 +6914,14 @@
                     const isMobile = window.innerWidth < 768;
                     const preloaderUrl = isMobile ? hero.preloaderMobileImageUrl : hero.preloaderDesktopImageUrl;
                     if (preloaderUrl) {
+                        // Eagerly fetch the image so it's in cache before we apply it
+                        const img = new Image();
+                        img.onload = function() {
+                            const bg = document.getElementById('preloaderBg');
+                            if (bg) bg.style.backgroundImage = 'url(' + preloaderUrl + ')';
+                        };
+                        img.src = preloaderUrl;
+                        // Apply immediately too (shows as soon as bytes arrive)
                         const bg = document.getElementById('preloaderBg');
                         if (bg) bg.style.backgroundImage = 'url(' + preloaderUrl + ')';
                         try { localStorage.setItem(isMobile ? 'preloaderMobileUrl' : 'preloaderDesktopUrl', preloaderUrl); } catch(e) {}
@@ -7374,7 +7386,7 @@
                     // Get reCAPTCHA token
                     let recaptchaToken = null;
                     try {
-                        recaptchaToken = await grecaptcha.execute('6LevLlIsAAAAACA4B0mAG0wvTCNnubTNA-OgUgai', { action: 'submit_enquiry' });
+                        recaptchaToken = await grecaptcha.execute('6Lc-IwstAAAAAG6RKzXebPO1AIyfJa88YFMt3cAO', { action: 'submit_enquiry' });
                     } catch (recaptchaErr) {
                         console.warn('reCAPTCHA error:', recaptchaErr);
                     }

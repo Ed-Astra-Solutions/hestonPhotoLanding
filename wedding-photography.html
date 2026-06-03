@@ -49,24 +49,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://hestonadminapi.edastra.in" crossorigin>
 
-    <!-- Preload hero background image so it appears with first paint -->
+    <!-- Preload hero so it appears with first paint (removed for home referrers below) -->
     <link rel="preload" as="image" id="heroPreload" href="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop" fetchpriority="high">
 
-    <!-- Inline hero URL early: apply cached admin-supplied URL before first paint, and prefetch latest -->
+    <!-- Detect referrer, control preload priority, fire API early -->
     <script>
         (function() {
+            // Detect navigation from home page (same origin index)
+            var ref = document.referrer;
+            var fromHome = ref && (
+                /^https?:\/\/(?:www\.)?hestonphoto\.com\/?(?:index\.html)?(?:[?#]|$)/.test(ref) ||
+                /^https?:\/\/localhost(?::\d+)?\/?(?:index\.html)?(?:[?#]|$)/.test(ref) ||
+                /^https?:\/\/127\.0\.0\.1(?::\d+)?\/?(?:index\.html)?(?:[?#]|$)/.test(ref)
+            );
+            window.__heroFromHome = !!fromHome;
+
             try {
                 var cached = localStorage.getItem('wpHeroImageUrl');
-                if (cached) {
-                    // Inject CSS variable before .page-hero ever renders
-                    var styleEl = document.createElement('style');
-                    styleEl.textContent = '.page-hero{--hero-bg-image:url("' + cached.replace(/"/g, '%22') + '")}';
-                    document.head.appendChild(styleEl);
-                    var pre = document.getElementById('heroPreload');
-                    if (pre) pre.href = cached;
-                }
-            } catch (e) {}
-            // Fire API early (in head, parallel with fonts) so non-cached visitors still get the dynamic URL ASAP
+                window.__heroCachedSrc = cached || null;
+            } catch (e) { window.__heroCachedSrc = null; }
+
+            var pre = document.getElementById('heroPreload');
+            if (fromHome) {
+                // Navigating from home — image likely cached; skip aggressive preload
+                if (pre) pre.parentNode.removeChild(pre);
+            } else if (window.__heroCachedSrc && pre) {
+                // Direct visit with known CMS URL — preload the real image
+                pre.href = window.__heroCachedSrc;
+            }
+            // else: first direct visit — default fallback preload stays
+
             var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
             var API = isLocal ? 'http://localhost:3000' : 'https://hestonadminapi.edastra.in';
             window.__wpHeroPromise = fetch(API + '/api/website/weddingPhotography')
@@ -237,16 +249,16 @@
             padding: 8rem 2rem 4rem;
         }
 
-        .page-hero::before {
-            content: '';
+        .hero-bg-img {
             position: absolute;
             inset: 0;
-            background-image: var(--hero-bg-image, url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop'));
-            background-position: center;
-            background-size: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0.35;
             filter: grayscale(20%);
             z-index: 0;
+            transition: opacity 0.6s ease;
         }
 
         .page-hero::after {
@@ -493,18 +505,23 @@
 
         /* Specialisations / Wedding Types */
         .specialisations-section { background: var(--white); }
+        .spec-carousel-wrapper { position: relative; }
         .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 4px;
         }
-        @media (max-width: 968px) {
-            .spec-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 580px) {
-            .spec-grid { grid-template-columns: 1fr; }
-        }
+        .spec-grid::-webkit-scrollbar { display: none; }
         .spec-card {
+            flex: 0 0 clamp(220px, 23.5vw, 330px);
+            scroll-snap-align: start;
             position: relative;
             border-radius: 18px;
             overflow: hidden;
@@ -545,6 +562,39 @@
         }
         .spec-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
         .spec-card:hover img { transform: scale(1.08); }
+        /* Scroll arrows — desktop only */
+        .spec-arrow { display: none; }
+        @media (hover: hover) and (min-width: 769px) {
+            .spec-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                background: rgba(20,20,20,0.75);
+                border: 1px solid rgba(201,168,124,0.35);
+                color: var(--gold);
+                cursor: pointer;
+                z-index: 10;
+                transition: background 0.25s, border-color 0.25s;
+                backdrop-filter: blur(6px);
+            }
+            .spec-arrow:hover { background: rgba(201,168,124,0.18); border-color: var(--gold); }
+            .spec-arrow:disabled { opacity: 0.3; cursor: default; }
+            .spec-arrow svg { width: 18px; height: 18px; stroke-width: 2; }
+            .spec-arrow-prev { left: -22px; }
+            .spec-arrow-next { right: -22px; }
+        }
+        @media (max-width: 768px) {
+            .spec-card { flex: 0 0 72vw; height: 320px; }
+        }
+        @media (max-width: 480px) {
+            .spec-card { flex: 0 0 85vw; height: 280px; }
+        }
 
         /* Venues */
         .venues-section { background: var(--cream); }
@@ -831,8 +881,8 @@
         .archives-section { background: var(--cream); }
         .archives-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 280px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-flow: dense;
             gap: 1rem;
         }
         .archive-item {
@@ -843,6 +893,7 @@
             background: var(--charcoal);
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            aspect-ratio: 3/4;
         }
         .archive-item:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.15); }
         .archive-item img {
@@ -888,9 +939,8 @@
             transition: opacity 0.3s ease;
         }
         .archive-item.has-gallery:hover::after { opacity: 1; }
-        /* Featured layout for first 6 items */
+        /* Featured first tile */
         .archive-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-        .archive-item:nth-child(6) { grid-column: span 2; }
         .archives-empty {
             text-align: center;
             padding: 3rem 1rem;
@@ -912,14 +962,12 @@
         @keyframes archSpin { to { transform: rotate(360deg); } }
 
         @media (max-width: 968px) {
-            .archives-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
+            .archives-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
             .archive-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
-            .archive-item:nth-child(6) { grid-column: span 2; }
         }
         @media (max-width: 580px) {
-            .archives-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; gap: 0.75rem; }
-            .archive-item:nth-child(1),
-            .archive-item:nth-child(6) { grid-column: span 1; }
+            .archives-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .archive-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
             .archive-item .archive-overlay { opacity: 1; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%); }
         }
 
@@ -1102,6 +1150,31 @@
 
     <!-- Hero -->
     <section class="page-hero" aria-label="Wedding Photography Hero">
+        <!-- Hero background image — real <img> gives us fetchpriority + loading control -->
+        <img
+            id="heroBgImg"
+            class="hero-bg-img"
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop"
+            alt=""
+            role="presentation"
+            fetchpriority="high"
+            decoding="async"
+        >
+        <script>
+        (function(){
+            var img = document.getElementById('heroBgImg');
+            if (!img) return;
+            if (window.__heroFromHome) {
+                // Visited from home — lower priority; image likely warm in browser cache
+                img.fetchPriority = 'low';
+                img.loading = 'lazy';
+            }
+            // Override src with cached CMS URL; preload cache serves it instantly if preloaded
+            if (window.__heroCachedSrc) {
+                img.src = window.__heroCachedSrc;
+            }
+        })();
+        </script>
         <div class="page-hero-content" data-aos="fade-up">
             <div class="breadcrumb">
                 <a href="index.html">Home</a>
@@ -1146,6 +1219,10 @@
                 <h2 class="section-title">Every Tradition, <em>Beautifully Honoured</em></h2>
                 <p class="section-subtitle">From the vibrancy of an Indian baraat to the quiet elegance of a civil ceremony — we photograph every culture with reverence and craft.</p>
             </div>
+            <div class="spec-carousel-wrapper">
+            <button class="spec-arrow spec-arrow-prev" id="specPrev" onclick="scrollSpec(-1)" aria-label="Scroll left">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
             <div class="spec-grid" id="wpSpecGrid">
                 <div class="spec-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&h=800&fit=crop" alt="Hindu wedding photography" loading="lazy">
@@ -1189,7 +1266,11 @@
                         <p>From the Cotswolds to the Côte d'Azur, Goa to the Ritz-Carlton Dubai — we travel for your love story.</p>
                     </div>
                 </div>
-            </div>
+            </div><!-- /.spec-grid -->
+            <button class="spec-arrow spec-arrow-next" id="specNext" onclick="scrollSpec(1)" aria-label="Scroll right">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            </div><!-- /.spec-carousel-wrapper -->
         </div>
     </section>
 
@@ -1335,7 +1416,7 @@
                     <p>At Heston Photo Photography, we believe that every wedding is a story waiting to be told—authentically, artistically, and with heart.</p>
                     <div class="footer-contact-inline">
                         <a href="tel:+442084329898"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>020 8432 9898</a>
-                        <a href="mailto:info.hestonphoto@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info.hestonphoto@gmail.com</a>
+                        <a href="mailto:info@hestonphoto.co.uk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@hestonphoto.co.uk</a>
                     </div>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/hestonphoto" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -1405,6 +1486,31 @@
         if (typeof AOS !== 'undefined') {
             AOS.init({ duration: 800, once: true, offset: 80 });
         }
+
+        // Spec carousel
+        function scrollSpec(dir) {
+            const grid = document.getElementById('wpSpecGrid');
+            if (!grid) return;
+            const card = grid.querySelector('.spec-card');
+            const step = card ? card.offsetWidth + 20 : 340;
+            grid.scrollBy({ left: dir * step, behavior: 'smooth' });
+            setTimeout(updateSpecArrows, 350);
+        }
+        function updateSpecArrows() {
+            const grid = document.getElementById('wpSpecGrid');
+            const prev = document.getElementById('specPrev');
+            const next = document.getElementById('specNext');
+            if (!grid || !prev || !next) return;
+            prev.disabled = grid.scrollLeft <= 4;
+            next.disabled = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('wpSpecGrid');
+            if (grid) {
+                updateSpecArrows();
+                grid.addEventListener('scroll', updateSpecArrows, { passive: true });
+            }
+        });
 
         // Header scroll
         const header = document.getElementById('header');
@@ -1662,7 +1768,16 @@
                     wp = result.data.weddingPhotography;
                 }
                 if (wp.heroImageUrl) {
-                    document.querySelector('.page-hero').style.setProperty('--hero-bg-image', `url('${wp.heroImageUrl}')`);
+                    const heroBgImg = document.getElementById('heroBgImg');
+                    if (heroBgImg && heroBgImg.src !== wp.heroImageUrl) {
+                        heroBgImg.style.opacity = '0';
+                        const tmp = new Image();
+                        tmp.onload = () => {
+                            heroBgImg.src = wp.heroImageUrl;
+                            heroBgImg.style.opacity = '';
+                        };
+                        tmp.src = wp.heroImageUrl;
+                    }
                 }
                 if (wp.introImageUrl) {
                     const introImg = document.getElementById('wpIntroImg');
