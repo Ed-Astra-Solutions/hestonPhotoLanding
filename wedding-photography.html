@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J09CVYG8EV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J09CVYG8EV');
-    </script>
+    <!-- Google Analytics loaded conditionally by cookie-consent.js -->
+    <script src="/cookie-consent.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -745,7 +739,7 @@
         .footer-contact-inline a {
             display: inline-flex; align-items: center; gap: 0.5rem;
             color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; overflow-wrap: break-word; word-break: break-all;
         }
         .footer-contact-inline a:hover { color: var(--gold); }
         .footer-contact-inline a svg { stroke: var(--gold); flex-shrink: 0; }
@@ -754,7 +748,7 @@
             color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem;
         }
         .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links li { margin-bottom: 0.75rem; padding: 0.15rem 0; }
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; }
         .footer-links a:hover { color: var(--gold); padding-left: 0.5rem; }
         .footer-newsletter h4 {
@@ -836,6 +830,7 @@
             .faq-a { font-size: 0.9rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 3rem; margin-bottom: 3rem; }
             .footer-brand { grid-column: span 2; }
+            .footer-newsletter { grid-column: span 2; }
         }
         @media (max-width: 480px) {
             section.page-section { padding: 3rem 1rem; }
@@ -856,9 +851,14 @@
             footer { padding: 3.5rem 1.25rem 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2.5rem; margin-bottom: 2rem; }
             .footer-brand { grid-column: span 1; }
+            .footer-newsletter { grid-column: span 1; }
             .footer-grid .footer-links h4,
             .footer-grid .footer-newsletter h4 { margin-bottom: 1rem; }
-            .newsletter-form { flex-direction: row; }
+            .newsletter-form { flex-direction: column; gap: 0.6rem; }
+            .newsletter-form input { width: 100%; box-sizing: border-box; }
+            .newsletter-form button { width: 100%; display: flex; justify-content: center; align-items: center; padding: 0.875rem; }
+            .footer-bottom { gap: 1rem; }
+            .recaptcha-notice { text-align: center; }
             .spec-card { height: 280px; }
             .spec-card h3 { font-size: 1.25rem; }
             .spec-card p { font-size: 0.8rem; }
@@ -867,6 +867,8 @@
             .approach-step h3 { font-size: 1.2rem; }
             .intro-content p { font-size: 0.9rem; }
             .footer-legal { flex-direction: column; gap: 0.75rem; }
+            .footer-social a { width: 44px; height: 44px; }
+            .footer-links a { padding: 0.2rem 0; display: inline-block; }
         }
         @media (max-width: 360px) {
             .page-hero h1 { font-size: 1.85rem; }
@@ -1731,6 +1733,52 @@
         });
 
         loadWeddingArchives();
+
+        // ============================================
+        // Mobile: intercept vertical scroll in Specialisations section
+        // and redirect it to horizontal carousel until fully scrolled
+        // ============================================
+        (function() {
+            const section = document.querySelector('.specialisations-section');
+            const grid = document.getElementById('wpSpecGrid');
+            if (!section || !grid) return;
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let prevTouchY = 0;
+
+            section.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                prevTouchY = touchStartY;
+            }, { passive: true });
+
+            section.addEventListener('touchmove', function(e) {
+                if (window.innerWidth > 768) return;
+
+                const currentX = e.touches[0].clientX;
+                const currentY = e.touches[0].clientY;
+                const totalDeltaX = touchStartX - currentX;
+                const totalDeltaY = touchStartY - currentY;
+                const moveDeltaY = prevTouchY - currentY;
+                prevTouchY = currentY;
+
+                // Only intercept primarily vertical gestures
+                if (Math.abs(totalDeltaX) > Math.abs(totalDeltaY)) return;
+
+                const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
+                const atStart = grid.scrollLeft <= 4;
+                const goingDown = totalDeltaY > 0;
+
+                if (goingDown && !atEnd) {
+                    e.preventDefault();
+                    grid.scrollLeft += moveDeltaY;
+                } else if (!goingDown && !atStart) {
+                    e.preventDefault();
+                    grid.scrollLeft += moveDeltaY;
+                }
+            }, { passive: false });
+        })();
 
         // ============================================
         // Dynamic content loading from admin API

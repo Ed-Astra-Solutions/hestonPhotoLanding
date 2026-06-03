@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J09CVYG8EV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J09CVYG8EV');
-    </script>
+    <!-- Google Analytics loaded conditionally by cookie-consent.js -->
+    <script src="/cookie-consent.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -968,6 +962,9 @@
             .package-card .price { font-size: clamp(2.2rem, 7vw, 3rem); }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 3rem; margin-bottom: 3rem; }
             .footer-brand { grid-column: span 2; }
+            .footer-newsletter { grid-column: span 2; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { width: 100%; padding: 0.875rem; display: flex; align-items: center; justify-content: center; }
         }
         @media (max-width: 480px) {
             section.page-section { padding: 3rem 1rem; }
@@ -987,7 +984,7 @@
             .btn { justify-content: center; padding: 0.9rem 1.5rem; font-size: 0.75rem; }
             footer { padding: 3.5rem 1.25rem 1.5rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2.5rem; margin-bottom: 2rem; }
-            .footer-brand { grid-column: span 1; }
+            .footer-brand, .footer-newsletter { grid-column: span 1; }
             .package-card { padding: 1.75rem 1.25rem; }
             .package-card .price { font-size: 2.2rem; }
             .package-card .price-period { font-size: 0.8rem; }
@@ -2197,6 +2194,65 @@
         document.getElementById('fullscreenViewer').addEventListener('click', (e) => {
             if (e.target.id === 'fullscreenViewer') closeFullscreen();
         });
+
+        // Mobile: redirect vertical swipes in the locations section to horizontal carousel scroll
+        // On mobile, scrolling down drives the carousel right until the last card; then vertical scroll resumes.
+        // Symmetric on scroll-up: carousel retreats left before letting the page scroll up.
+        (function () {
+            if (!window.matchMedia('(max-width: 768px)').matches) return;
+            var locSection = document.querySelector('.locations-section');
+            var locGrid = document.getElementById('pwBackdropsGrid');
+            if (!locSection || !locGrid) return;
+
+            var startX = 0, startY = 0, prevY = 0;
+            var intercepting = false, touchInSection = false;
+
+            document.addEventListener('touchstart', function (e) {
+                var rect = locSection.getBoundingClientRect();
+                var y = e.touches[0].clientY;
+                touchInSection = y >= rect.top && y <= rect.bottom;
+                startX = e.touches[0].clientX;
+                startY = y;
+                prevY = y;
+                intercepting = false;
+            }, { passive: true });
+
+            document.addEventListener('touchmove', function (e) {
+                if (!touchInSection) return;
+                var t = e.touches[0];
+                var dy = prevY - t.clientY; // positive = finger moving up = page scrolling down
+                var totalDx = Math.abs(t.clientX - startX);
+                var totalDy = Math.abs(t.clientY - startY);
+
+                // Let native horizontal swipes pass through to the carousel directly
+                if (!intercepting && totalDx > totalDy) return;
+
+                if (dy > 0) {
+                    // Scrolling down — advance carousel rightward
+                    var atEnd = locGrid.scrollLeft + locGrid.clientWidth >= locGrid.scrollWidth - 8;
+                    if (!atEnd) {
+                        e.preventDefault();
+                        intercepting = true;
+                        locGrid.scrollLeft += dy * 2;
+                    }
+                } else if (dy < 0) {
+                    // Scrolling up — retreat carousel leftward
+                    var atStart = locGrid.scrollLeft <= 8;
+                    if (!atStart) {
+                        e.preventDefault();
+                        intercepting = true;
+                        locGrid.scrollLeft += dy * 2;
+                    }
+                }
+
+                prevY = t.clientY;
+            }, { passive: false });
+
+            document.addEventListener('touchend', function () {
+                intercepting = false;
+                touchInSection = false;
+            }, { passive: true });
+        }());
 
         // Kick off
         loadPreWeddingPortfolio().then(() => {

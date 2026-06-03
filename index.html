@@ -4,15 +4,9 @@
     <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="gJ2PCyv6KiqtusB7KI1IyEQYrr5nj_Ex9cV7GfBQuAE">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J09CVYG8EV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J09CVYG8EV');
-    </script>
-    
+    <!-- Google Analytics loaded conditionally by cookie-consent.js -->
+    <script src="/cookie-consent.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#2C2C2C">
@@ -64,8 +58,6 @@
     
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://hestonadminapi.edastra.in" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload default preloader background so it renders immediately -->
     <link rel="preload" as="image" href="Photo%20Grid%20for%20website%20.jpeg" fetchpriority="high" id="preloaderImgPreload">
@@ -853,10 +845,14 @@
                 --hero-spacing: clamp(2rem, 6vmin, 4rem);
             }
             
+            .hero {
+                --hero-logo-size: clamp(80px, 14vmin, 130px);
+            }
+
             .hero-logo {
                 padding-bottom: 0;
             }
-            
+
             .film-roll {
                 padding: 0.5rem 0;
                 animation-duration: 12s;
@@ -866,11 +862,12 @@
         /* Smaller phones */
         @media (max-width: 480px) and (orientation: portrait) {
             .hero {
+                --hero-logo-size: clamp(65px, 12vmin, 100px);
                 --gallery-card-width: clamp(200px, 52vw, 280px);
                 --gallery-card-height: clamp(230px, 45vh, 320px);
                 --hero-spacing: clamp(1.5rem, 5vmin, 3rem);
             }
-            
+
             .hero-logo {
                 padding-bottom: 0;
             }
@@ -3657,7 +3654,7 @@
 
             .about-image-badge {
                 right: 1rem;
-                bottom: -7rem;
+                bottom: 1rem;
                 padding: 1.5rem;
             }
 
@@ -4280,7 +4277,7 @@
             
             .about-image-badge {
                 right: 0.75rem;
-                bottom: -6rem;
+                bottom: 0.75rem;
                 padding: 1rem 1.25rem;
             }
             
@@ -4815,7 +4812,7 @@
             
             .about-image-badge {
                 right: 0.5rem;
-                bottom: -5rem;
+                bottom: 0.5rem;
                 padding: 0.75rem 1rem;
             }
             
@@ -5178,6 +5175,7 @@
                     </li>
                     <li><a href="#about">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
