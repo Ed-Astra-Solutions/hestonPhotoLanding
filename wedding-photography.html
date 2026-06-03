@@ -879,6 +879,15 @@
             .spec-card { height: 240px; }
         }
 
+        /* Horizontal scroll trap: block native vertical pan so JS can redirect it */
+        @media (max-width: 768px) {
+            .specialisations-section.h-scroll-trap,
+            .specialisations-section.h-scroll-trap .spec-carousel-wrapper,
+            .specialisations-section.h-scroll-trap .spec-grid {
+                touch-action: pan-x;
+            }
+        }
+
         /* ===== Wedding Archives ===== */
         .archives-section { background: var(--cream); }
         .archives-grid {
@@ -1735,17 +1744,40 @@
         loadWeddingArchives();
 
         // ============================================
-        // Mobile: intercept vertical scroll in Specialisations section
-        // and redirect it to horizontal carousel until fully scrolled
+        // Mobile: redirect vertical scroll → horizontal carousel
+        // Uses touch-action:pan-x (CSS) to block the browser's native
+        // vertical pan, so no preventDefault() race is needed.
         // ============================================
         (function() {
             const section = document.querySelector('.specialisations-section');
             const grid = document.getElementById('wpSpecGrid');
             if (!section || !grid) return;
 
+            function isMobile() { return window.innerWidth <= 768; }
+            function isAtEnd() { return grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4; }
+
+            let sectionInView = false;
             let touchStartX = 0;
             let touchStartY = 0;
             let prevTouchY = 0;
+
+            function syncTrap() {
+                if (isMobile() && sectionInView && !isAtEnd()) {
+                    section.classList.add('h-scroll-trap');
+                } else {
+                    section.classList.remove('h-scroll-trap');
+                }
+            }
+
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function(entries) {
+                    sectionInView = entries[0].isIntersecting;
+                    syncTrap();
+                }, { threshold: 0.25 }).observe(section);
+            }
+
+            grid.addEventListener('scroll', syncTrap, { passive: true });
+            window.addEventListener('resize', syncTrap, { passive: true });
 
             section.addEventListener('touchstart', function(e) {
                 touchStartX = e.touches[0].clientX;
@@ -1753,31 +1785,24 @@
                 prevTouchY = touchStartY;
             }, { passive: true });
 
+            // No preventDefault needed — touch-action:pan-x in CSS already prevents
+            // the browser from scrolling the page vertically when the trap is active.
             section.addEventListener('touchmove', function(e) {
-                if (window.innerWidth > 768) return;
+                if (!section.classList.contains('h-scroll-trap')) return;
 
                 const currentX = e.touches[0].clientX;
                 const currentY = e.touches[0].clientY;
-                const totalDeltaX = touchStartX - currentX;
-                const totalDeltaY = touchStartY - currentY;
-                const moveDeltaY = prevTouchY - currentY;
+                const absX = Math.abs(touchStartX - currentX);
+                const absY = Math.abs(touchStartY - currentY);
+
+                // Horizontal gesture → let native carousel scroll handle it
+                if (absX > absY) return;
+
+                const step = prevTouchY - currentY;
                 prevTouchY = currentY;
-
-                // Only intercept primarily vertical gestures
-                if (Math.abs(totalDeltaX) > Math.abs(totalDeltaY)) return;
-
-                const atEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 4;
-                const atStart = grid.scrollLeft <= 4;
-                const goingDown = totalDeltaY > 0;
-
-                if (goingDown && !atEnd) {
-                    e.preventDefault();
-                    grid.scrollLeft += moveDeltaY;
-                } else if (!goingDown && !atStart) {
-                    e.preventDefault();
-                    grid.scrollLeft += moveDeltaY;
-                }
-            }, { passive: false });
+                grid.scrollLeft += step;
+                syncTrap();
+            }, { passive: true });
         })();
 
         // ============================================

@@ -761,7 +761,7 @@
             display: flex;
             gap: var(--gallery-gap);
             padding: 1rem 0;
-            animation: filmScroll 35s linear infinite;
+            animation: filmScroll 18s linear infinite;
             will-change: transform;
         }
 
@@ -842,39 +842,59 @@
                 --gallery-card-width: clamp(220px, 55vw, 320px);
                 --gallery-card-height: clamp(260px, 52vh, 380px);
                 --gallery-gap: clamp(0.5rem, 1.5vw, 0.75rem);
-                --hero-spacing: clamp(2rem, 6vmin, 4rem);
+                --hero-spacing: clamp(4.5rem, 12vmin, 7rem);
+                min-height: auto;
+                justify-content: flex-start;
             }
-            
+
             .hero {
-                --hero-logo-size: clamp(80px, 14vmin, 130px);
+                --hero-logo-size: clamp(110px, 20vmin, 170px);
             }
 
             .hero-logo {
                 padding-bottom: 0;
             }
 
+            .hero-tagline {
+                padding-bottom: clamp(0.5rem, 2vw, 1rem);
+            }
+
+            .film-roll-container {
+                margin-top: clamp(1.5rem, 5vw, 3rem);
+            }
+
             .film-roll {
                 padding: 0.5rem 0;
-                animation-duration: 12s;
+                animation-duration: 3.5s;
             }
         }
 
         /* Smaller phones */
         @media (max-width: 480px) and (orientation: portrait) {
             .hero {
-                --hero-logo-size: clamp(65px, 12vmin, 100px);
+                --hero-logo-size: clamp(95px, 18vmin, 140px);
                 --gallery-card-width: clamp(200px, 52vw, 280px);
                 --gallery-card-height: clamp(230px, 45vh, 320px);
-                --hero-spacing: clamp(1.5rem, 5vmin, 3rem);
+                --hero-spacing: clamp(4rem, 11vmin, 6rem);
+                min-height: auto;
+                justify-content: flex-start;
             }
 
             .hero-logo {
                 padding-bottom: 0;
             }
-            
+
+            .hero-tagline {
+                padding-bottom: clamp(0.4rem, 1.5vw, 0.75rem);
+            }
+
+            .film-roll-container {
+                margin-top: clamp(1rem, 4vw, 2rem);
+            }
+
             .film-roll {
                 padding: 0.25rem 0;
-                animation-duration: 10s;
+                animation-duration: 3s;
             }
         }
 
@@ -3653,13 +3673,7 @@
             }
 
             .about-image-badge {
-                right: 1rem;
-                bottom: 1rem;
-                padding: 1.5rem;
-            }
-
-            .about-image-badge .number {
-                font-size: 2.5rem;
+                display: none;
             }
 
             .contact-grid {
@@ -4275,20 +4289,6 @@
                 order: 2;
             }
             
-            .about-image-badge {
-                right: 0.75rem;
-                bottom: 0.75rem;
-                padding: 1rem 1.25rem;
-            }
-            
-            .about-image-badge .number {
-                font-size: 2rem;
-            }
-            
-            .about-image-badge span {
-                font-size: 0.7rem;
-            }
-            
             .about-content h2 {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
@@ -4808,21 +4808,6 @@
             
             .about-grid {
                 gap: 1.5rem;
-            }
-            
-            .about-image-badge {
-                right: 0.5rem;
-                bottom: 0.5rem;
-                padding: 0.75rem 1rem;
-            }
-            
-            .about-image-badge .number {
-                font-size: 1.6rem;
-            }
-            
-            .about-image-badge span {
-                font-size: 0.6rem;
-                letter-spacing: 0.05em;
             }
             
             .about-content .section-label {
@@ -5745,6 +5730,14 @@
         // Shared API cache (populated by prefetch, consumed by apply/load functions)
         const _apiCache = {};
 
+        // Hero film-roll slider state — merged from filmRollImages + archive covers
+        let _sliderFilmRoll = [];
+        let _sliderArchiveCovers = [];
+        function _mergeAndRenderSlider() {
+            const combined = [..._sliderFilmRoll, ..._sliderArchiveCovers];
+            if (combined.length > 0) renderFilmRollSlider(combined);
+        }
+
         // AOS initialized lazily after preloader dismissed (see initAOS below)
 
         // ==========================================
@@ -6073,7 +6066,7 @@
         function renderFilmRollSlider(images) {
             const filmRoll = document.querySelector('.film-roll');
             if (!filmRoll || images.length === 0) return;
-            
+
             // Generate film frames HTML
             const framesHtml = images.map(img => `
                 <div class="film-frame">
@@ -6081,9 +6074,14 @@
                     ${img.caption ? `<div class="film-frame-overlay"><span>${img.caption}</span></div>` : ''}
                 </div>
             `).join('');
-            
+
             // Duplicate for seamless infinite loop
             filmRoll.innerHTML = framesHtml + framesHtml;
+
+            // Scale animation duration so scroll speed stays consistent regardless of image count
+            const isMobile = window.innerWidth < 768;
+            const secPerImage = isMobile ? 0.5 : 3;
+            filmRoll.style.animationDuration = (images.length * secPerImage) + 's';
         }
         
         // ==========================================
@@ -6907,7 +6905,8 @@
                     const hero = data.home.hero;
                     const taglineEl = document.querySelector('.hero-tagline');
                     if (taglineEl && hero.tagline) taglineEl.textContent = hero.tagline;
-                    if (hero.filmRollImages && hero.filmRollImages.length > 0) renderFilmRollSlider(hero.filmRollImages);
+                    _sliderFilmRoll = hero.filmRollImages || [];
+                    _mergeAndRenderSlider();
                     // Preloader bg
                     const isMobile = window.innerWidth < 768;
                     const preloaderUrl = isMobile ? hero.preloaderMobileImageUrl : hero.preloaderDesktopImageUrl;
@@ -6934,6 +6933,11 @@
                 if (data.archives && data.archives.entries) {
                     archivesData = data.archives.entries;
                     renderArchivesGrid(archivesData);
+                    // Supplement hero slider with archive cover images
+                    _sliderArchiveCovers = archivesData
+                        .filter(e => e.coverImageUrl)
+                        .map(e => ({ imageUrl: e.coverImageUrl, altText: e.coupleNames || e.title || 'Wedding', caption: e.coupleNames || '' }));
+                    _mergeAndRenderSlider();
                 } else { renderArchivesGrid([]); }
             } catch(e) { renderDefaultArchives(); }
         }

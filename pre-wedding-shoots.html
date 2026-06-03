@@ -2195,62 +2195,75 @@
             if (e.target.id === 'fullscreenViewer') closeFullscreen();
         });
 
-        // Mobile: redirect vertical swipes in the locations section to horizontal carousel scroll
-        // On mobile, scrolling down drives the carousel right until the last card; then vertical scroll resumes.
-        // Symmetric on scroll-up: carousel retreats left before letting the page scroll up.
+        // Mobile: redirect vertical swipes in the "Where We Shoot" section to drive the
+        // horizontal carousel. Page scroll is blocked until the last card is reached.
+        // Symmetrical on swipe-up: carousel retreats before allowing page to scroll up.
+        //
+        // NOTE: listener is on the section element, NOT document/window.
+        // Chrome silently ignores {passive:false} on document/window for touchmove,
+        // so e.preventDefault() must be called from a handler on a specific element.
         (function () {
             if (!window.matchMedia('(max-width: 768px)').matches) return;
             var locSection = document.querySelector('.locations-section');
             var locGrid = document.getElementById('pwBackdropsGrid');
             if (!locSection || !locGrid) return;
 
-            var startX = 0, startY = 0, prevY = 0;
-            var intercepting = false, touchInSection = false;
+            var startX = 0, startY = 0, prevX = 0, prevY = 0;
+            // 'vertical' | 'horizontal' | null (null = not yet determined)
+            var dir = null;
 
-            document.addEventListener('touchstart', function (e) {
-                var rect = locSection.getBoundingClientRect();
-                var y = e.touches[0].clientY;
-                touchInSection = y >= rect.top && y <= rect.bottom;
-                startX = e.touches[0].clientX;
-                startY = y;
-                prevY = y;
-                intercepting = false;
+            locSection.addEventListener('touchstart', function (e) {
+                startX = prevX = e.touches[0].clientX;
+                startY = prevY = e.touches[0].clientY;
+                dir = null;
             }, { passive: true });
 
-            document.addEventListener('touchmove', function (e) {
-                if (!touchInSection) return;
+            locSection.addEventListener('touchmove', function (e) {
                 var t = e.touches[0];
-                var dy = prevY - t.clientY; // positive = finger moving up = page scrolling down
+                var dx = prevX - t.clientX;  // positive = swiping left
+                var dy = prevY - t.clientY;  // positive = swiping up (scrolling down)
                 var totalDx = Math.abs(t.clientX - startX);
                 var totalDy = Math.abs(t.clientY - startY);
 
-                // Let native horizontal swipes pass through to the carousel directly
-                if (!intercepting && totalDx > totalDy) return;
-
-                if (dy > 0) {
-                    // Scrolling down — advance carousel rightward
-                    var atEnd = locGrid.scrollLeft + locGrid.clientWidth >= locGrid.scrollWidth - 8;
-                    if (!atEnd) {
-                        e.preventDefault();
-                        intercepting = true;
-                        locGrid.scrollLeft += dy * 2;
-                    }
-                } else if (dy < 0) {
-                    // Scrolling up — retreat carousel leftward
-                    var atStart = locGrid.scrollLeft <= 8;
-                    if (!atStart) {
-                        e.preventDefault();
-                        intercepting = true;
-                        locGrid.scrollLeft += dy * 2;
-                    }
+                // Lock direction once finger has moved ≥6 px in any axis
+                if (!dir && (totalDx > 6 || totalDy > 6)) {
+                    dir = totalDy >= totalDx ? 'vertical' : 'horizontal';
                 }
 
+                if (dir === 'horizontal') {
+                    // Horizontal swipe: drive the carousel manually (we must, since we
+                    // may have called preventDefault on earlier events of this gesture)
+                    locGrid.scrollLeft += dx;
+                } else if (dir === 'vertical') {
+                    if (dy > 0) {
+                        // Swiping up (user scrolling down page)
+                        var atEnd = locGrid.scrollLeft + locGrid.clientWidth >= locGrid.scrollWidth - 8;
+                        if (!atEnd) {
+                            e.preventDefault();
+                            locGrid.scrollLeft += dy * 2;
+                        }
+                        // atEnd → don't preventDefault → page scrolls normally
+                    } else if (dy < 0) {
+                        // Swiping down (user scrolling up page)
+                        var atStart = locGrid.scrollLeft <= 8;
+                        if (!atStart) {
+                            e.preventDefault();
+                            locGrid.scrollLeft += dy * 2;
+                        }
+                        // atStart → don't preventDefault → page scrolls normally
+                    }
+                } else {
+                    // Direction not yet determined — block scroll tentatively so the
+                    // browser doesn't commit to vertical scroll before we can decide
+                    e.preventDefault();
+                }
+
+                prevX = t.clientX;
                 prevY = t.clientY;
             }, { passive: false });
 
-            document.addEventListener('touchend', function () {
-                intercepting = false;
-                touchInSection = false;
+            locSection.addEventListener('touchend', function () {
+                dir = null;
             }, { passive: true });
         }());
 
