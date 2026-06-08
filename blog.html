@@ -575,6 +575,25 @@
             margin: 1.5rem 0;
         }
 
+        .blog-inline-image {
+            margin: 2.5rem 0;
+        }
+
+        .blog-inline-image img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+            margin: 0;
+        }
+
+        .blog-inline-image figcaption {
+            margin-top: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
         .blog-post-content ul, .blog-post-content ol {
             color: var(--text-muted);
             padding-left: 1.5rem;
@@ -1244,6 +1263,16 @@
             `;
 
             let contentHTML = blog.content || '<p>No content available.</p>';
+
+            // Replace [[image:N]] tokens with in-article images
+            const inlineImages = blog.inlineImages || [];
+            contentHTML = contentHTML.replace(/\[\[image:(\d+)\]\]/g, (match, n) => {
+                const img = inlineImages.find(im => String(im.marker) === String(n));
+                if (!img || !img.imageUrl) return '';
+                const caption = img.caption
+                    ? `<figcaption>${img.caption}</figcaption>` : '';
+                return `<figure class="blog-inline-image"><img src="${img.imageUrl}" alt="${img.altText || blog.title || ''}" loading="lazy">${caption}</figure>`;
+            });
 
             // Add tags at the bottom
             if (blog.tags && blog.tags.length > 0) {
