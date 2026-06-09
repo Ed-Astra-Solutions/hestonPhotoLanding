@@ -1,5 +1,5 @@
 (function () {
-    var GA_ID = 'G-J09CVYG8EV';
+    var GA_ID = 'G-L91J8R9PQ8';
     var STORAGE_KEY = 'heston_cookie_consent';
 
     function loadGA() {

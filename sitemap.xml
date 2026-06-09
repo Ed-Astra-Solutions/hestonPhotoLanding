@@ -4,31 +4,63 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://hestonphoto.com/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <loc>https://hestonphoto.co.uk/</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://hestonphoto.com/og-image.jpg</image:loc>
-      <image:title>Heston Photo – Premium Wedding Photography &amp; Cinematic Films</image:title>
-      <image:caption>Luxury wedding photography studio in Bangalore, India and Dubai covering destination weddings worldwide</image:caption>
+      <image:loc>https://hestonphoto.co.uk/og-image.jpg</image:loc>
+      <image:title>Heston Photo – Premium Asian Wedding Photography &amp; Cinematic Films</image:title>
+      <image:caption>Luxury Asian wedding photography studio in London, UK covering weddings across London, the UK and destinations worldwide</image:caption>
     </image:image>
+  </url>
+
+  <!-- Wedding Photography -->
+  <url>
+    <loc>https://hestonphoto.co.uk/wedding-photography.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pre-Wedding Shoots -->
+  <url>
+    <loc>https://hestonphoto.co.uk/pre-wedding-shoots.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Blog -->
   <url>
-    <loc>https://hestonphoto.com/blog.html</loc>
-    <lastmod>2025-07-16</lastmod>
+    <loc>https://hestonphoto.co.uk/blog.html</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- 404 Page -->
+  <!-- Privacy Policy -->
   <url>
-    <loc>https://hestonphoto.com/404.html</loc>
-    <lastmod>2025-07-16</lastmod>
+    <loc>https://hestonphoto.co.uk/privacy.html</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms -->
+  <url>
+    <loc>https://hestonphoto.co.uk/terms.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Cookie Policy -->
+  <url>
+    <loc>https://hestonphoto.co.uk/cookies.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
