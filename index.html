@@ -624,6 +624,11 @@
             display: none;
         }
 
+        /* Shown only in the mobile menu */
+        .nav-mobile-only {
+            display: none;
+        }
+
         /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
@@ -3638,6 +3643,10 @@
                 display: flex;
             }
 
+            .nav-mobile-only {
+                display: list-item;
+            }
+
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -5133,6 +5142,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="nav-mobile-only"><a href="https://lifestyle.hestonphoto.co.uk" target="_blank" rel="noopener">Lifestyle Site</a></li>
                 </ul>
             </nav>
 
