@@ -760,7 +760,7 @@
         .film-roll {
             display: flex;
             padding: 1rem 0;
-            animation: filmScroll 18s linear infinite;
+            animation: filmScroll 11s linear infinite;
             will-change: transform;
         }
 
@@ -866,7 +866,7 @@
 
             .film-roll {
                 padding: 0.5rem 0;
-                animation-duration: 12s;
+                animation-duration: 6s;
             }
         }
 
@@ -895,7 +895,7 @@
 
             .film-roll {
                 padding: 0.25rem 0;
-                animation-duration: 11s;
+                animation-duration: 5s;
             }
         }
 
@@ -5127,7 +5127,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="wedding-photography.html">Wedding Photography</a></li>
                             <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
-                            <li><a href="https://lifestyle.hestonphoto.co.uk">Lifestyle Site</a></li>
+                            <li><a href="https://lifestyle.hestonphoto.co.uk" target="_blank" rel="noopener">Lifestyle Site</a></li>
                         </ul>
                     </li>
                     <li><a href="#about">About</a></li>
@@ -6053,7 +6053,7 @@
             // Scale animation duration so scroll speed stays consistent regardless of image count.
             // Each frame should be on screen long enough to actually be seen before it loops.
             const isMobile = window.innerWidth < 768;
-            const secPerImage = isMobile ? 1.1 : 1.5;
+            const secPerImage = isMobile ? 0.7 : 1.5;
             filmRoll.style.animationDuration = (images.length * secPerImage) + 's';
         }
         

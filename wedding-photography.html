@@ -1343,11 +1343,11 @@
     <section class="page-section venues-section">
         <div class="section-container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Featured Venues</span>
-                <h2 class="section-title">Where We've <em>Captured Love</em></h2>
-                <p class="section-subtitle">A selection of the venues we've had the privilege of photographing, in London and around the world.</p>
+                <span class="section-label" id="wpVenuesLabel">Featured Venues</span>
+                <h2 class="section-title" id="wpVenuesTitle">Where We've <em>Captured Love</em></h2>
+                <p class="section-subtitle" id="wpVenuesSubtitle">A selection of the venues we've had the privilege of photographing, in London and around the world.</p>
             </div>
-            <div class="venues-list" data-aos="fade-up" data-aos-delay="150">
+            <div class="venues-list" id="wpVenuesList" data-aos="fade-up" data-aos-delay="150">
                 <span class="venue-pill">The Great Barn</span>
                 <span class="venue-pill">Alice Way Gurdwara</span>
                 <span class="venue-pill">Meridian Grand</span>
@@ -1824,6 +1824,14 @@
             return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
+        function renderVenues(venues) {
+            const list = document.getElementById('wpVenuesList');
+            if (!list || !Array.isArray(venues) || venues.length === 0) return;
+            list.innerHTML = venues
+                .map(v => `<span class="venue-pill">${escapeAttr(v.name || '')}</span>`)
+                .join('');
+        }
+
         function renderSpecialisations(specs) {
             const grid = document.getElementById('wpSpecGrid');
             if (!grid || !Array.isArray(specs) || specs.length === 0) return;
@@ -1869,6 +1877,12 @@
                 }
                 if (Array.isArray(wp.specialisations) && wp.specialisations.length > 0) {
                     renderSpecialisations(wp.specialisations);
+                }
+                if (wp.venuesSectionLabel) document.getElementById('wpVenuesLabel').textContent = wp.venuesSectionLabel;
+                if (wp.venuesSectionTitle) document.getElementById('wpVenuesTitle').textContent = wp.venuesSectionTitle;
+                if (wp.venuesSectionSubtitle) document.getElementById('wpVenuesSubtitle').textContent = wp.venuesSectionSubtitle;
+                if (Array.isArray(wp.venues) && wp.venues.length > 0) {
+                    renderVenues(wp.venues);
                 }
             } catch (err) {
                 console.log('Wedding photography content failed to load:', err.message);
