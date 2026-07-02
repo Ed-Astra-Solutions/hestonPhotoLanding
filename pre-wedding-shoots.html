@@ -655,6 +655,8 @@
                 flex: 0 0 85vw;
                 height: 280px;
             }
+            .venues-list { gap: 0.6rem; }
+            .venue-pill { padding: 0.6rem 1.1rem; font-size: 0.78rem; }
         }
 
         /* Experience / Philosophy */
@@ -717,6 +719,32 @@
             font-size: 0.9rem;
             color: rgba(255,255,255,0.7);
             line-height: 1.8;
+        }
+
+        /* Featured Venues */
+        .venues-section { background: var(--cream); }
+        .venues-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .venue-pill {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(201, 168, 124, 0.4);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+        .venue-pill:hover {
+            background: var(--gold);
+            color: var(--white);
+            border-color: var(--gold);
+            transform: translateY(-2px);
         }
 
         /* Process */
@@ -1621,6 +1649,34 @@
                 <div class="gallery-item">
                     <div class="gallery-loading"><div class="loading-spinner"></div></div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Venues -->
+    <section class="page-section venues-section">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Featured Venues</span>
+                <h2 class="section-title">Where We've <em>Captured Love</em></h2>
+                <p class="section-subtitle">A selection of the venues we've had the privilege of photographing, in London and around the world.</p>
+            </div>
+            <div class="venues-list" data-aos="fade-up" data-aos-delay="150">
+                <span class="venue-pill">Richmond Park</span>
+                <span class="venue-pill">Tower Bridge</span>
+                <span class="venue-pill">Notting Hill</span>
+                <span class="venue-pill">South Bank</span>
+                <span class="venue-pill">Greenwich Park</span>
+                <span class="venue-pill">Kew Gardens</span>
+                <span class="venue-pill">St Dunstan in the East</span>
+                <span class="venue-pill">Hampstead Heath</span>
+                <span class="venue-pill">Windsor Great Park</span>
+                <span class="venue-pill">The Cotswolds</span>
+                <span class="venue-pill">Lake District</span>
+                <span class="venue-pill">Peak District</span>
+                <span class="venue-pill">White Cliffs of Dover</span>
+                <span class="venue-pill">Brighton Seafront</span>
+                <span class="venue-pill">Scottish Highlands</span>
             </div>
         </div>
     </section>
