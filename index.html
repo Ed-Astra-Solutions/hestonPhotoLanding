@@ -6205,7 +6205,7 @@
             if (!container || !track) return;
 
             const mq = window.matchMedia('(max-width: 767px)');
-            const PX_PER_SEC = 250;   // auto-scroll speed on mobile (higher = faster; the old CSS loop was ~325)
+            const PX_PER_SEC = 175;   // auto-scroll speed on mobile (higher = faster; the old CSS loop was ~325)
             const RESUME_DELAY = 1800; // ms of inactivity before auto-scroll resumes
 
             let rafId = null;
