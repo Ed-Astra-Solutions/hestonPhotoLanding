@@ -981,6 +981,8 @@
                         <ul class="dropdown-menu">
                             <li><a href="wedding-photography.html">Wedding Photography</a></li>
                             <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
                         </ul>
                     </li>
                     <li><a href="index.html#about">About</a></li>
@@ -1182,7 +1184,7 @@
                 const date = blog.publishedAt
                     ? new Date(blog.publishedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
                     : '';
-                const coverImg = blog.coverImageUrl || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop';
+                const coverImg = blog.coverImageUrl || 'images/gallery/heston-photo-asian-wedding-gallery-001.jpg';
                 const tags = (blog.tags || []).slice(0, 3);
 
                 return `
@@ -1240,7 +1242,7 @@
             document.title = `${blog.title} - Heston Photo Blog`;
 
             // Build post view
-            const coverImg = blog.coverImageUrl || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=600&fit=crop';
+            const coverImg = blog.coverImageUrl || 'images/gallery/heston-photo-asian-wedding-gallery-001.jpg';
             const date = blog.publishedAt
                 ? new Date(blog.publishedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
                 : '';

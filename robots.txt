@@ -4,13 +4,20 @@
 User-agent: *
 Allow: /
 
+# Portfolio imagery — explicitly crawlable
+Allow: /images/
+
 # Block API endpoints (served via subdomain, but disallow just in case)
 Disallow: /api/
 
 # Private client galleries (also noindex'd at the page level)
 Disallow: /event.html
 
-# Polite crawl rate for Bing
+# Image crawlers
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
