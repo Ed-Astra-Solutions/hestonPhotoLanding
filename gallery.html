@@ -70,7 +70,7 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, .logo-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             letter-spacing: 0.02em;
@@ -197,13 +197,13 @@
             width: auto;
         }
 
-        .logo h1 {
+        .logo .logo-title {
             font-size: 1.5rem;
             color: var(--white);
             letter-spacing: 0.02em;
         }
 
-        .logo h1 span {
+        .logo .logo-title span {
             color: var(--gold);
         }
 
@@ -456,7 +456,7 @@
             object-fit: contain;
         }
 
-        .hero-logo h1 {
+        .hero-logo .logo-title {
             font-size: var(--hero-title-size);
             color: var(--charcoal);
             letter-spacing: 0.12em;
@@ -467,7 +467,7 @@
             background: none;
         }
 
-        .hero-logo h1 span {
+        .hero-logo .logo-title span {
             color: var(--gold);
             font-weight: 500;
         }
@@ -3472,7 +3472,8 @@
             }
         }
 
-        @media (max-width: 992px) {
+                /* Full menu no longer fits below ~1100px: switch to the slide-in menu */
+        @media (max-width: 1100px) {
             nav {
                 position: fixed;
                 top: 0;
@@ -3509,6 +3510,9 @@
             .nav-mobile-only {
                 display: list-item;
             }
+        }
+
+        @media (max-width: 992px) {
 
             .about-grid {
                 grid-template-columns: 1fr;
@@ -4035,7 +4039,7 @@
                 padding: 0.5rem 0;
             }
 
-            .logo h1 {
+            .logo .logo-title {
                 font-size: 1.1rem;
             }
 
@@ -4975,21 +4979,19 @@
         <div class="header-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Heston Photo" class="logo-img">
-                <h1>Heston<span>Photo</span></h1>
+                <div class="logo-title">Heston<span>Photo</span></div>
             </a>
 
             <nav id="nav">
                 <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#archives">Archives</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="gallery.html" class="active">Gallery</a></li>
-                    <li><a href="index.html#prewedding">Pre-Wedding</a></li>
                     <li class="has-dropdown">
                         <a href="index.html#services">Services <span class="dropdown-arrow">&#9660;</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="wedding-photography.html">Wedding Photography</a></li>
                             <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="https://lifestyle.hestonphoto.co.uk" target="_blank" rel="noopener">Lifestyle Site</a></li>
                         </ul>
                     </li>
@@ -5013,7 +5015,7 @@
         <div class="section-container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-label">The Gallery</span>
-                <h2 class="section-title">Moments <em>Gallery</em></h2>
+                <h1 class="section-title">Moments <em>Gallery</em></h1>
                 <p class="section-subtitle">A living mosaic of our favourite frames — click any image to view it full-screen.</p>
             </div>
 
@@ -5224,7 +5226,8 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html#archives">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="index.html#services">Services</a></li>
                         <li><a href="index.html#about">About Us</a></li>
                         <li><a href="blog.html">Blog</a></li>

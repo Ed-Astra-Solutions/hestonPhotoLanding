@@ -15,7 +15,7 @@
     
     <!-- Primary SEO Meta Tags -->
     <title>Heston Photo – Premium Asian Wedding Photography London | UK</title>
-    <meta name="description" content="Heston Photo is London's premier luxury Asian wedding photography studio. Specialising in candid storytelling, Indian & Asian weddings, pre-wedding shoots, and bespoke albums. Serving London, Ruislip, Harrow, Wembley, Slough, Birmingham, Leicester, Manchester & across the UK. Book your dream wedding coverage today.">
+    <meta name="description" content="Luxury Asian wedding photography in London and across the UK: candid, cinematic coverage of Hindu, Sikh, Gujarati and Muslim weddings and pre-wedding shoots.">
     <meta name="keywords" content="wedding photography, wedding photographer London, Asian wedding photographer, Indian wedding photographer London, Hindu wedding photographer UK, Sikh wedding photographer, Muslim wedding photographer London, wedding photographer Ruislip, wedding photographer Harrow, wedding photographer Wembley, wedding photographer Slough, wedding photographer Birmingham, wedding photographer Leicester, wedding photographer Manchester, luxury wedding photography London, candid wedding photography, destination wedding photographer UK, pre-wedding shoot London, bridal portrait, couple portrait, engagement photography, reception photography, mehendi photography, sangeet photography, wedding album, wedding photography packages, professional wedding photographer London, creative wedding photographer, artistic wedding photographer, wedding photography portfolio, wedding photography near me, best wedding photographer London, wedding photographer cost, Asian wedding photography UK">
     
     <!-- Canonical URL -->
@@ -333,7 +333,7 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, .logo-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             letter-spacing: 0.02em;
@@ -460,13 +460,13 @@
             width: auto;
         }
 
-        .logo h1 {
+        .logo .logo-title {
             font-size: 1.5rem;
             color: var(--white);
             letter-spacing: 0.02em;
         }
 
-        .logo h1 span {
+        .logo .logo-title span {
             color: var(--gold);
         }
 
@@ -719,7 +719,7 @@
             object-fit: contain;
         }
 
-        .hero-logo h1 {
+        .hero-logo .logo-title {
             font-size: var(--hero-title-size);
             color: var(--charcoal);
             letter-spacing: 0.12em;
@@ -730,7 +730,7 @@
             background: none;
         }
 
-        .hero-logo h1 span {
+        .hero-logo .logo-title span {
             color: var(--gold);
             font-weight: 500;
         }
@@ -941,7 +941,7 @@
             }
         }
 
-        .hero h1 {
+        .hero h1, .hero .logo-title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: var(--charcoal);
             margin-bottom: 2rem;
@@ -3735,7 +3735,8 @@
             }
         }
 
-        @media (max-width: 992px) {
+                /* Full menu no longer fits below ~1100px: switch to the slide-in menu */
+        @media (max-width: 1100px) {
             nav {
                 position: fixed;
                 top: 0;
@@ -3772,6 +3773,9 @@
             .nav-mobile-only {
                 display: list-item;
             }
+        }
+
+        @media (max-width: 992px) {
 
             .about-grid {
                 grid-template-columns: 1fr;
@@ -3918,7 +3922,7 @@
                 width: 100%;
             }
 
-            .hero h1 {
+            .hero h1, .hero .logo-title {
                 font-size: 2.25rem;
                 margin-bottom: 1.5rem;
             }
@@ -4298,7 +4302,7 @@
                 padding: 0.5rem 0;
             }
 
-            .logo h1 {
+            .logo .logo-title {
                 font-size: 1.1rem;
             }
 
@@ -4306,7 +4310,7 @@
                 height: 36px;
             }
 
-            .hero h1 {
+            .hero h1, .hero .logo-title {
                 font-size: 1.85rem;
             }
 
@@ -4752,7 +4756,7 @@
                 font-size: 0.85rem;
             }
             
-            .hero h1 {
+            .hero h1, .hero .logo-title {
                 font-size: 1.6rem;
             }
             
@@ -5249,21 +5253,19 @@
         <div class="header-container">
             <a href="#" class="logo">
                 <img src="logo.png" alt="Heston Photo" class="logo-img">
-                <h1>Heston<span>Photo</span></h1>
+                <div class="logo-title">Heston<span>Photo</span></div>
             </a>
             
             <nav id="nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#archives">Archives</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="#prewedding">Pre-Wedding</a></li>
                     <li class="has-dropdown">
                         <a href="#services">Services <span class="dropdown-arrow">&#9660;</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="wedding-photography.html">Wedding Photography</a></li>
                             <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="https://lifestyle.hestonphoto.co.uk" target="_blank" rel="noopener">Lifestyle Site</a></li>
                         </ul>
                     </li>
@@ -5292,7 +5294,7 @@
         <!-- Hero Logo - Centered at top -->
         <a href="#" class="hero-logo">
             <img src="logo.png" alt="Heston Photo" class="hero-logo-img">
-            <h1>Heston<span>Photo</span></h1>
+            <div class="logo-title">Heston<span>Photo</span></div>
             <span class="hero-tagline">Premium Wedding Photography</span>
         </a>
         
@@ -6000,7 +6002,8 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#archives">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="blog.html">Blog</a></li>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#2C2C2C">
-    <title>Micro Hindu Weddings &amp; Registry Ceremonies: Big Moments, Small Guest Lists | Heston Photo</title>
-    <meta name="description" content="A 2026 guide to micro Hindu weddings and registry ceremonies in the UK — pairing a civil ceremony with an intimate Hindu wedding, multiple outfit moments, and photography for a small guest list.">
+    <title>Micro Hindu Weddings &amp; Registry Ceremonies | Heston Photo</title>
+    <meta name="description" content="How to pair a registry ceremony with an intimate Hindu wedding in the UK — timings, outfit changes and photography for a small guest list.">
     <meta name="keywords" content="micro Hindu wedding, small Hindu wedding UK, registry office Hindu wedding, intimate Hindu ceremony London, civil ceremony and Hindu wedding, small Indian wedding photography, multiple outfit moments, intimate mandap ceremony">
     <link rel="canonical" href="https://hestonphoto.co.uk/micro-hindu-wedding-registry-ceremony.html">
     <meta name="robots" content="index, follow">
@@ -57,14 +57,14 @@
         *{margin:0;padding:0;box-sizing:border-box;}
         html{scroll-behavior:smooth;}
         body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;}
-        h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;}
+        h1,h2,h3,h4,.logo-title{font-family:'Cormorant Garamond',serif;font-weight:500;}
         a{text-decoration:none;color:inherit;}
         header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(44,44,44,0.98);backdrop-filter:blur(20px);padding:0.75rem 0;box-shadow:0 4px 30px rgba(0,0,0,0.2);}
         .header-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;}
         .logo{display:flex;align-items:center;gap:0.75rem;}
         .logo-img{height:50px;width:auto;}
-        .logo h1{font-size:1.5rem;color:var(--white);letter-spacing:0.02em;}
-        .logo h1 span{color:var(--gold);}
+        .logo .logo-title{font-size:1.5rem;color:var(--white);letter-spacing:0.02em;}
+        .logo .logo-title span{color:var(--gold);}
         nav ul{display:flex;list-style:none;gap:2.5rem;align-items:center;}
         nav a{color:var(--white);font-size:0.8rem;font-weight:260;letter-spacing:0.15em;text-transform:uppercase;position:relative;padding:0.5rem 0;transition:color 0.3s ease;}
         nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s ease;}
@@ -128,18 +128,22 @@
         .footer-legal{display:flex;gap:2rem;flex-wrap:wrap;}
         .footer-legal a{color:rgba(255,255,255,0.5);font-size:0.85rem;transition:color 0.3s ease;}
         .footer-legal a:hover{color:var(--gold);}
-        @media(max-width:768px){
-            nav{position:fixed;top:0;right:-100%;width:100%;height:100vh;background:var(--charcoal);display:flex;align-items:center;justify-content:center;transition:right 0.4s ease;z-index:1000;}
-            nav.active{right:0;}
-            nav ul{flex-direction:column;gap:2rem;text-align:center;}
-            nav a{font-size:1.25rem;}
+        /* Full menu no longer fits below ~1280px: switch to the slide-in menu */
+        @media(max-width:1280px){
+            nav:where(#nav){position:fixed;top:0;right:-100%;width:100%;height:100vh;background:var(--charcoal);display:flex;align-items:center;justify-content:center;transition:right 0.4s ease;z-index:1000;}
+            nav:where(#nav).active{right:0;}
+            nav:where(#nav) ul{flex-direction:column;gap:2rem;text-align:center;}
+            nav:where(#nav) a{font-size:1.25rem;}
             .mobile-menu-toggle{display:flex;}
+        }
+        @media(max-width:768px){
             .article-header h1{font-size:1.8rem;}
             .article-hero{height:35vh;min-height:240px;}
             .footer-grid{grid-template-columns:1fr;gap:2rem;}
             .footer-bottom{flex-direction:column;text-align:center;}
         }
         @media(max-width:576px){.article-header h1{font-size:1.5rem;}}
+            nav:where(#nav) a { white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -147,16 +151,18 @@
         <div class="header-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Heston Photo" class="logo-img">
-                <h1>Heston<span>Photo</span></h1>
+                <div class="logo-title">Heston<span>Photo</span></div>
             </a>
             <nav id="nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="wedding-photography.html">Wedding Photography</a></li>
-                    <li><a href="pre-wedding-shoots.html">Pre-Wedding</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="wedding-photography.html">Weddings</a></li>
+                    <li><a href="pre-wedding-shoots.html">Pre-Wedding</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="blog.html" style="color:var(--gold);">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-toggle" id="mobileMenuToggle"><span></span><span></span><span></span></div>
@@ -270,6 +276,7 @@
                         <li><a href="wedding-photography.html">Wedding Photography</a></li>
                         <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -280,6 +287,19 @@
                         <li><a href="small-gurdwara-wedding-anand-karaj.html">Small Gurdwara Weddings</a></li>
                         <li><a href="micro-hindu-wedding-registry-ceremony.html">Micro Hindu Weddings</a></li>
                         <li><a href="winter-asian-wedding-photography-uk.html">Winter Weddings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Venue Guides</h4>
+                    <ul>
+                        <li><a href="asian-wedding-photographer-chiswick-house.html">Chiswick House</a></li>
+                        <li><a href="asian-wedding-photographer-havelock-gurdwara-southall.html">Havelock Gurdwara, Southall</a></li>
+                        <li><a href="asian-wedding-photographer-kew-gardens.html">Kew Gardens</a></li>
+                        <li><a href="asian-wedding-photographer-manor-of-groves.html">Manor of Groves</a></li>
+                        <li><a href="asian-wedding-photographer-offley-place.html">Offley Place</a></li>
+                        <li><a href="asian-wedding-photographer-oshwal-centre.html">Oshwal Centre</a></li>
+                        <li><a href="asian-wedding-photographer-sattavis-patidar-centre.html">Sattavis Patidar Centre</a></li>
+                        <li><a href="asian-wedding-photographer-willesden-temple.html">Willesden Temple</a></li>
                     </ul>
                 </div>
             </div>

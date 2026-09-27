@@ -22,9 +22,20 @@ const venues = JSON.parse(fs.readFileSync(path.join(__dirname, 'venues.json'), '
 const donor = fs.readFileSync(path.join(ROOT, DONOR), 'utf8');
 
 const STYLE = (donor.match(/<style>[\s\S]*?<\/style>/i) || [])[0];
-const HEADER = (donor.match(/<header>[\s\S]*?<\/header>/i) || [])[0];
+// Venue guides sit under Wedding Photography, not under the donor story's Portfolio.
+const HEADER = ((donor.match(/<header>[\s\S]*?<\/header>/i) || [])[0] || '')
+  .replace(/ aria-current="page"/g, '')
+  .replace('<a href="wedding-photography.html">', '<a href="wedding-photography.html" aria-current="page">') || null;
 const FOOTER = (donor.match(/<footer>[\s\S]*?<\/footer>/i) || [])[0];
 if (!STYLE || !HEADER || !FOOTER) throw new Error(`could not lift design blocks from ${DONOR}`);
+
+const decodeEntities = (s) => s
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(+d))
+  .replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+
+// First candidate that fits within max characters (the last one otherwise).
+const fit = (max, ...candidates) => candidates.find((c) => c.length <= max) || candidates[candidates.length - 1];
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -36,19 +47,27 @@ function story(slug, kind) {
   const full = path.join(ROOT, file);
   if (!fs.existsSync(full)) throw new Error(`missing story page: ${file}`);
   const html = fs.readFileSync(full, 'utf8');
-  const rawTitle = (html.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || slug;
+  // The page's <h1> ("Couple — Venue Wedding"); decoded, since esc() re-encodes it.
+  const heading = (html.match(/<h1 class="page">([\s\S]*?)<\/h1>/i) || [])[1] || slug;
+  const title = decodeEntities(heading.replace(/<[^>]+>/g, '')).trim();
   const dir = kind === 'wedding' ? 'weddings' : 'pre-wedding';
   const suffix = kind === 'wedding' ? 'asian-wedding-photography' : 'pre-wedding-shoot';
   const cover = `images/${dir}/${slug}/${slug}-${suffix}-cover.jpg`;
   if (!fs.existsSync(path.join(ROOT, cover))) throw new Error(`missing cover: ${cover}`);
   const count = (html.match(/<img\b[^>]*\bsrc=["']images\//gi) || []).length;
-  return { file, cover, count, title: rawTitle.split('|')[0].trim() };
+  return { file, cover, count, title };
 }
 
 function page(v) {
   const url = `${ORIGIN}/${v.slug}.html`;
-  const title = `Asian Wedding Photographer at ${v.name} | Heston Photo`;
-  const desc = `Asian and Indian wedding photography at ${v.name}, ${v.where}. Real galleries shot at the venue, plus notes on light, timings and ceremony coverage from Heston Photo.`;
+  // Search results truncate titles past ~60 characters and descriptions past
+  // ~160, so fall back to shorter forms for long venue names.
+  const name = v.short || v.name;
+  const title = fit(65, `Asian Wedding Photographer at ${name} | Heston Photo`,
+                        `Asian Wedding Photographer at ${name}`);
+  const desc = fit(160, `Asian wedding photography at ${name}, ${v.where}. Real galleries shot at the venue, plus notes on light, timings and ceremonies.`,
+                        `Asian wedding photography at ${name}. Real galleries shot at the venue, plus notes on light, timings and ceremonies.`,
+                        `Asian wedding photography at ${name}: real galleries and venue notes from Heston Photo.`);
 
   const weddings = (v.stories || []).map((s) => story(s, 'wedding'));
   const preWeddings = (v.preWeddingStories || []).map((s) => story(s, 'pre-wedding'));
@@ -151,7 +170,7 @@ ${HEADER}
 <main class="wrap">
 <div class="lede">
 <p class="eyebrow">${esc(v.eyebrow)} &middot; ${esc(v.where)}</p>
-<h2 class="page">Asian Wedding Photographer at ${esc(v.name)}</h2>
+<h1 class="page">Asian Wedding Photographer at ${esc(v.name)}</h1>
 <p>${esc(v.lede)}</p>
 </div>
 

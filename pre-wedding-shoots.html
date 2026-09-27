@@ -10,7 +10,7 @@
 
     <!-- Primary SEO Meta Tags -->
     <title>Pre-Wedding Shoots London | Engagement Photography – Heston Photo</title>
-    <meta name="description" content="Relaxed yet polished pre-wedding & engagement shoots in London, Paris, Rome and beyond. Heston Photo creates a beautiful visual prelude to your big day — bespoke locations, signature edit, private gallery.">
+    <meta name="description" content="Relaxed, polished pre-wedding and engagement shoots in London and beyond — bespoke locations, a signature edit and a private online gallery.">
     <meta name="keywords" content="pre-wedding shoot London, engagement photography London, pre-wedding photographer UK, couple shoot London, destination pre-wedding shoot, engagement photoshoot London, Asian pre-wedding shoot">
 
     <link rel="canonical" href="https://hestonphoto.co.uk/pre-wedding-shoots.html">
@@ -148,7 +148,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, .logo-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             letter-spacing: 0.02em;
@@ -175,8 +175,8 @@
         }
         .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
         .logo-img { height: 50px; width: auto; }
-        .logo h1 { font-size: 1.5rem; color: var(--white); letter-spacing: 0.02em; }
-        .logo h1 span { color: var(--gold); }
+        .logo .logo-title { font-size: 1.5rem; color: var(--white); letter-spacing: 0.02em; }
+        .logo .logo-title span { color: var(--gold); }
         nav ul { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
         nav ul > li { display: flex; align-items: center; }
         nav a {
@@ -961,9 +961,10 @@
             .package-card.featured { transform: none; }
             .package-card.featured:hover { transform: translateY(-8px); }
         }
-        @media (max-width: 768px) {
+        /* Full menu no longer fits below ~1280px: switch to the slide-in menu */
+        @media (max-width: 1280px) {
             .mobile-menu-toggle { display: flex; }
-            nav {
+            nav:where(#nav) {
                 position: fixed;
                 top: 0; left: 0;
                 width: 100%; height: 100vh;
@@ -975,9 +976,11 @@
                 transform: translateX(100%);
                 transition: transform 0.4s ease;
             }
-            nav.active { transform: translateX(0); }
-            nav ul { flex-direction: column; gap: 1.75rem; text-align: center; }
-            nav a { font-size: 1rem; }
+            nav:where(#nav).active { transform: translateX(0); }
+            nav:where(#nav) ul { flex-direction: column; gap: 1.75rem; text-align: center; }
+            nav:where(#nav) a { font-size: 1rem; }
+        }
+        @media (max-width: 768px) {
             section.page-section { padding: 4rem 1.25rem; }
             .section-header { margin-bottom: 2.5rem; }
             .page-hero {
@@ -1005,7 +1008,7 @@
             section.page-section { padding: 3rem 1rem; }
             .section-header { margin-bottom: 2rem; }
             .header-container { padding: 0 1.25rem; }
-            .logo h1 { font-size: 1.2rem; }
+            .logo .logo-title { font-size: 1.2rem; }
             .logo-img { height: 40px; }
             .page-hero {
                 min-height: 72vh;
@@ -1040,7 +1043,7 @@
         }
         @media (max-width: 360px) {
             .page-hero h1 { font-size: 1.85rem; }
-            .logo h1 { font-size: 1.05rem; }
+            .logo .logo-title { font-size: 1.05rem; }
             .logo-img { height: 34px; }
             .section-title { font-size: 1.6rem; }
         }
@@ -1394,6 +1397,7 @@
             .fullscreen-prev { left: 0.5rem; }
             .fullscreen-next { right: 0.5rem; }
         }
+            nav:where(#nav) a { white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -1403,15 +1407,15 @@
         <div class="header-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Heston Photo" class="logo-img">
-                <h1>Heston<span>Photo</span></h1>
+                <div class="logo-title">Heston<span>Photo</span></div>
             </a>
             <nav id="nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#archives">Portfolio</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="wedding-photography.html">Weddings</a></li>
                     <li><a href="pre-wedding-shoots.html">Pre-Wedding</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="index.html?service=prewedding&subject=Pre-Wedding%20Shoot%20Enquiry#contact" class="nav-cta">Enquire</a></li>
@@ -1431,7 +1435,6 @@
             class="hero-bg-img"
             src="images/pre-wedding/heston-photo-pre-wedding-shoot-hero.jpg"
             alt="Pre-wedding shoot in London by Heston Photo"
-            role="presentation"
             fetchpriority="high"
             decoding="async"
         >
@@ -1806,7 +1809,8 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html#archives">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="index.html#services">Services</a></li>
                         <li><a href="index.html#about">About Us</a></li>
                         <li><a href="blog.html">Blog</a></li>
@@ -1819,7 +1823,6 @@
                     <ul>
                         <li><a href="wedding-photography.html">Wedding Photography</a></li>
                         <li><a href="pre-wedding-shoots.html">Pre-Wedding Shoots</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="wedding-photography.html#specialisations">Destination Weddings</a></li>
                         <li><a href="https://lifestyle.hestonphoto.co.uk/" target="_blank" rel="noopener">Lifestyle Site</a></li>
                     </ul>
