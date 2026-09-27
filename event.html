@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <script src="/cookie-consent.js"></script>
+    <script src="/recaptcha.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
@@ -242,13 +243,10 @@
             err.textContent = '';
             btn.disabled = true; btn.textContent = 'Verifying…';
             try {
-                const res = await fetch(`${API_BASE}/lifestyle/events/login`, {
-                    method: 'POST',
-                    headers: {'Content-Type':'application/json'},
-                    body: JSON.stringify({ slug, passcode: $('passcodeInput').value })
-                });
+                const res = await HestonCaptcha.post(`${API_BASE}/lifestyle/events/login`,
+                    { slug, passcode: $('passcodeInput').value }, 'event_login');
                 const data = await res.json();
-                if (!res.ok || !data.success) throw new Error(data.error || 'Failed');
+                if (!res.ok || !data.success) throw new Error(data.message || data.error || 'Failed');
                 localStorage.setItem(tokenKey, data.data.token);
                 await loadGallery(data.data.token);
             } catch (e2) {

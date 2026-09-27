@@ -5811,28 +5811,8 @@
 
     <!-- AOS Animation Library - loaded async for performance -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" async></script>
-    <!-- reCAPTCHA loaded lazily - only needed for contact form -->
-    <script>
-        // Defer reCAPTCHA load until user scrolls near contact section
-        (function() {
-            var loaded = false;
-            function loadRecaptcha() {
-                if (loaded) return;
-                loaded = true;
-                var s = document.createElement('script');
-                s.src = 'https://www.google.com/recaptcha/api.js?render=6Lc-IwstAAAAAG6RKzXebPO1AIyfJa88YFMt3cAO';
-                document.head.appendChild(s);
-            }
-            // Load on first scroll or after 8 seconds
-            var timer = setTimeout(loadRecaptcha, 8000);
-            var scrollHandler = function() {
-                clearTimeout(timer);
-                loadRecaptcha();
-                window.removeEventListener('scroll', scrollHandler);
-            };
-            window.addEventListener('scroll', scrollHandler, { passive: true });
-        })();
-    </script>
+    <!-- reCAPTCHA v3 + v2 fallback; loads lazily on first interaction -->
+    <script src="/recaptcha.js" defer></script>
     
     <script>
         // API Configuration
@@ -7639,23 +7619,7 @@
                         message: formData.get('message')
                     };
 
-                    // Get reCAPTCHA token
-                    let recaptchaToken = null;
-                    try {
-                        recaptchaToken = await grecaptcha.execute('6Lc-IwstAAAAAG6RKzXebPO1AIyfJa88YFMt3cAO', { action: 'submit_enquiry' });
-                    } catch (recaptchaErr) {
-                        console.warn('reCAPTCHA error:', recaptchaErr);
-                    }
-
-                    if (recaptchaToken) {
-                        data.recaptchaToken = recaptchaToken;
-                    }
-
-                    const response = await fetch(`${API_BASE_URL}/api/enquiry`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
+                    const response = await HestonCaptcha.post(`${API_BASE_URL}/api/enquiry`, data, 'submit_enquiry');
 
                     const result = await response.json();
 
@@ -7680,6 +7644,7 @@
                     }
                 } catch (error) {
                     console.error('Enquiry submission error:', error);
+                    showNotification(error.message || 'Failed to submit inquiry', 'error');
                     submitBtn.style.background = '#e74c3c';
                     submitBtn.innerHTML = `
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -7734,16 +7699,10 @@
                 `;
                 
                 try {
-                    const response = await fetch(`${API_BASE}/api/subscribe`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email: emailInput.value,
-                            source: 'footer'
-                        })
-                    });
+                    const response = await HestonCaptcha.post(`${API_BASE}/api/subscribe`, {
+                        email: emailInput.value,
+                        source: 'footer'
+                    }, 'subscribe');
                     
                     const data = await response.json();
                     
