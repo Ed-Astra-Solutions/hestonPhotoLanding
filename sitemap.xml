@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-chiswick-house.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-havelock-gurdwara-southall.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-kew-gardens.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-manor-of-groves.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-offley-place.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-oshwal-centre.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -79,7 +79,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-sattavis-patidar-centre.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -95,7 +95,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/asian-wedding-photographer-willesden-temple.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -111,25 +111,225 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/blog.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/cookies.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/gallery.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-001.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (1)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-002.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (2)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-003.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (3)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-004.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (4)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-005.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (5)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-006.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (6)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-007.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (7)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-008.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (8)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-009.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (9)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-010.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (10)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-011.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (11)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-012.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (12)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-013.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (13)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-014.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (14)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-015.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (15)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-016.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (16)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-017.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (17)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-018.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (18)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (18)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-019.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (19)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (19)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-020.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (20)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (20)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-021.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (21)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (21)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-022.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (22)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (22)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-023.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (23)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (23)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-024.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (24)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (24)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-025.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (25)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (25)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-026.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (26)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (26)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-027.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (27)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (27)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-028.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (28)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (28)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-029.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (29)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (29)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-030.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (30)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (30)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-031.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (31)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (31)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-032.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (32)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (32)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-033.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (33)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (33)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-034.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (34)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (34)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-035.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (35)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (35)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-036.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (36)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (36)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-037.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (37)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (37)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-038.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (38)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (38)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-039.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (39)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (39)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-040.jpg</image:loc>
+      <image:title>Asian wedding photography by Heston Photo, London (40)</image:title>
+      <image:caption>Asian wedding photography by Heston Photo, London (40)</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -163,14 +363,114 @@
       <image:caption>Wedding photography at The Great Barn by Heston Photo</image:caption>
     </image:image>
     <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/gagan-and-ashni-offley-place/gagan-and-ashni-offley-place-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Gagan &amp; Ashni wedding at Offley Place — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Gagan &amp; Ashni wedding at Offley Place — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/vishal-and-tulsi-offley-place/vishal-and-tulsi-offley-place-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Vishal &amp; Tulsi wedding at Offley Place — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Vishal &amp; Tulsi wedding at Offley Place — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/vandna-and-kiran-willesden-temple/vandna-and-kiran-willesden-temple-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Vandna &amp; Kiran wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Vandna &amp; Kiran wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/krishna-and-rishi-kew-gardens/krishna-and-rishi-kew-gardens-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Krishna &amp; Rishi wedding at Kew Gardens — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Krishna &amp; Rishi wedding at Kew Gardens — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/karishma-and-asheesh-oshwal-centre/karishma-and-asheesh-oshwal-centre-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Karishma &amp; Asheesh wedding at Oshwal Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Karishma &amp; Asheesh wedding at Oshwal Centre — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/pavan-and-asha-sattavis-pattidar-centre/pavan-and-asha-sattavis-pattidar-centre-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Pavan &amp; Asha wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Pavan &amp; Asha wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/harshil-and-mitisha-london/harshil-and-mitisha-london-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Harshil &amp; Mitisha wedding at London — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Harshil &amp; Mitisha wedding at London — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/pavan-and-chandni-shendish-manor/pavan-and-chandni-shendish-manor-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Pavan &amp; Chandni wedding at Shendish Manor — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Pavan &amp; Chandni wedding at Shendish Manor — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/rik-and-urvie-chiswick-house/rik-and-urvie-chiswick-house-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Rik &amp; Urvie wedding at Chiswick House — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Rik &amp; Urvie wedding at Chiswick House — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/roshni-and-arjun-sattavis-pattidar-centre/roshni-and-arjun-sattavis-pattidar-centre-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Roshni &amp; Arjun wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Roshni &amp; Arjun wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/weddings/ektaa-and-hiten-brent-town-hall/ektaa-and-hiten-brent-town-hall-asian-wedding-photography-cover.jpg</image:loc>
+      <image:title>Ektaa &amp; Hiten wedding at Brent Town Hall — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Ektaa &amp; Hiten wedding at Brent Town Hall — Asian wedding photography by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/valisha-and-priyesh-st-pauls-cathedral/valisha-and-priyesh-st-pauls-cathedral-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Valisha &amp; Priyesh pre-wedding shoot at St Paul</image:title>
+      <image:caption>Valisha &amp; Priyesh pre-wedding shoot at St Paul</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/karishma-and-asheesh-chiswick-house/karishma-and-asheesh-chiswick-house-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Karishma &amp; Asheesh pre-wedding shoot at Chiswick House by Heston Photo</image:title>
+      <image:caption>Karishma &amp; Asheesh pre-wedding shoot at Chiswick House by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/aswanee-and-pravin-tower-bridge/aswanee-and-pravin-tower-bridge-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Aswanee &amp; Pravin pre-wedding shoot at Tower Bridge by Heston Photo</image:title>
+      <image:caption>Aswanee &amp; Pravin pre-wedding shoot at Tower Bridge by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/sarina-and-amardeep-virginia-waters/sarina-and-amardeep-virginia-waters-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Sarina &amp; Amardeep pre-wedding shoot at Virginia Waters by Heston Photo</image:title>
+      <image:caption>Sarina &amp; Amardeep pre-wedding shoot at Virginia Waters by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/poonam-and-rahul/poonam-and-rahul-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Poonam &amp; Rahul pre-wedding shoot by Heston Photo</image:title>
+      <image:caption>Poonam &amp; Rahul pre-wedding shoot by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/jagroop-and-parmesh-central-london/jagroop-and-parmesh-central-london-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Jagroop &amp; Parmesh pre-wedding shoot at Central London by Heston Photo</image:title>
+      <image:caption>Jagroop &amp; Parmesh pre-wedding shoot at Central London by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/vijay-and-umisha-virginia-waters/vijay-and-umisha-virginia-waters-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Vijay &amp; Umisha pre-wedding shoot at Virginia Waters by Heston Photo</image:title>
+      <image:caption>Vijay &amp; Umisha pre-wedding shoot at Virginia Waters by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/pre-wedding/jayen-and-dhruvi-holland-park/jayen-and-dhruvi-holland-park-pre-wedding-shoot-cover.jpg</image:loc>
+      <image:title>Jayen &amp; Dhruvi pre-wedding shoot at Holland Park by Heston Photo</image:title>
+      <image:caption>Jayen &amp; Dhruvi pre-wedding shoot at Holland Park by Heston Photo</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://hestonphoto.co.uk/images/testimonials/chandni-patel-heston-photo-review.jpg</image:loc>
       <image:title>Heston Photo client</image:title>
       <image:caption>Heston Photo client</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://hestonphoto.co.uk/images/about/heston-photo-about.jpg</image:loc>
+      <image:title>The Heston Photo team</image:title>
+      <image:caption>The Heston Photo team</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/intimate-asian-weddings-london.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -186,7 +486,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/micro-hindu-wedding-registry-ceremony.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -202,133 +502,133 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/portfolio.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/dil-and-aashni-manor-of-groves/dil-and-aashni-manor-of-groves-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Dil &amp; Aashni — Manor of groves Wedding — Heston Photo</image:title>
-      <image:caption>Dil &amp; Aashni — Manor of groves Wedding — Heston Photo</image:caption>
+      <image:title>Dil &amp; Aashni wedding at Manor of Groves — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Dil &amp; Aashni wedding at Manor of Groves — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/shreeya-and-hiral-cyprus/shreeya-and-hiral-cyprus-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Shreeya &amp; Hiral — Cyprus Wedding — Heston Photo</image:title>
-      <image:caption>Shreeya &amp; Hiral — Cyprus Wedding — Heston Photo</image:caption>
+      <image:title>Shreeya &amp; Hiral wedding at Cyprus — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Shreeya &amp; Hiral wedding at Cyprus — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/gagan-and-ashni-offley-place/gagan-and-ashni-offley-place-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Gagan &amp; Ashni — Offley Place Wedding — Heston Photo</image:title>
-      <image:caption>Gagan &amp; Ashni — Offley Place Wedding — Heston Photo</image:caption>
+      <image:title>Gagan &amp; Ashni wedding at Offley Place — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Gagan &amp; Ashni wedding at Offley Place — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/harsh-and-riana-willesden-temple/harsh-and-riana-willesden-temple-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Harsh &amp; Riana — Willesden Temple Wedding — Heston Photo</image:title>
-      <image:caption>Harsh &amp; Riana — Willesden Temple Wedding — Heston Photo</image:caption>
+      <image:title>Harsh &amp; Riana wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Harsh &amp; Riana wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/raj-and-priya-east-side-rooms/raj-and-priya-east-side-rooms-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Raj &amp; Priya — East Side Rooms Wedding — Heston Photo</image:title>
-      <image:caption>Raj &amp; Priya — East Side Rooms Wedding — Heston Photo</image:caption>
+      <image:title>Raj &amp; Priya wedding at East Side Rooms — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Raj &amp; Priya wedding at East Side Rooms — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/vishal-and-tulsi-offley-place/vishal-and-tulsi-offley-place-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Vishal &amp; Tulsi — Offley Place Wedding — Heston Photo</image:title>
-      <image:caption>Vishal &amp; Tulsi — Offley Place Wedding — Heston Photo</image:caption>
+      <image:title>Vishal &amp; Tulsi wedding at Offley Place — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Vishal &amp; Tulsi wedding at Offley Place — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/jag-and-sara-havelock-gurdwara/jag-and-sara-havelock-gurdwara-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Jag &amp; Sara — Havelock Gurdwara Wedding — Heston Photo</image:title>
-      <image:caption>Jag &amp; Sara — Havelock Gurdwara Wedding — Heston Photo</image:caption>
+      <image:title>Jag &amp; Sara wedding at Havelock Gurdwara — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Jag &amp; Sara wedding at Havelock Gurdwara — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/vandna-and-kiran-willesden-temple/vandna-and-kiran-willesden-temple-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Vandna &amp; Kiran — Willesden temple Wedding — Heston Photo</image:title>
-      <image:caption>Vandna &amp; Kiran — Willesden temple Wedding — Heston Photo</image:caption>
+      <image:title>Vandna &amp; Kiran wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Vandna &amp; Kiran wedding at Willesden Temple — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/krishna-and-rishi-kew-gardens/krishna-and-rishi-kew-gardens-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Krishna &amp; Rishi — Kew Gardens Wedding — Heston Photo</image:title>
-      <image:caption>Krishna &amp; Rishi — Kew Gardens Wedding — Heston Photo</image:caption>
+      <image:title>Krishna &amp; Rishi wedding at Kew Gardens — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Krishna &amp; Rishi wedding at Kew Gardens — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/karishma-and-asheesh-oshwal-centre/karishma-and-asheesh-oshwal-centre-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Karishma &amp; Asheesh — Oshwal Centre Wedding — Heston Photo</image:title>
-      <image:caption>Karishma &amp; Asheesh — Oshwal Centre Wedding — Heston Photo</image:caption>
+      <image:title>Karishma &amp; Asheesh wedding at Oshwal Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Karishma &amp; Asheesh wedding at Oshwal Centre — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/pavan-and-asha-sattavis-pattidar-centre/pavan-and-asha-sattavis-pattidar-centre-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Pavan &amp; Asha — Sattavis Pattidar Centre Wedding — Heston Photo</image:title>
-      <image:caption>Pavan &amp; Asha — Sattavis Pattidar Centre Wedding — Heston Photo</image:caption>
+      <image:title>Pavan &amp; Asha wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Pavan &amp; Asha wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/harshil-and-mitisha-london/harshil-and-mitisha-london-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Harshil&amp; Mitisha — London Wedding — Heston Photo</image:title>
-      <image:caption>Harshil&amp; Mitisha — London Wedding — Heston Photo</image:caption>
+      <image:title>Harshil &amp; Mitisha wedding at London — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Harshil &amp; Mitisha wedding at London — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/pavan-and-chandni-shendish-manor/pavan-and-chandni-shendish-manor-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Pavan &amp; Chandni — Shendish Manor Wedding — Heston Photo</image:title>
-      <image:caption>Pavan &amp; Chandni — Shendish Manor Wedding — Heston Photo</image:caption>
+      <image:title>Pavan &amp; Chandni wedding at Shendish Manor — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Pavan &amp; Chandni wedding at Shendish Manor — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/george-and-sanjana-the-great-barn/george-and-sanjana-the-great-barn-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>George &amp; Sanjana — The Great Barn Wedding — Heston Photo</image:title>
-      <image:caption>George &amp; Sanjana — The Great Barn Wedding — Heston Photo</image:caption>
+      <image:title>George &amp; Sanjana wedding at The Great Barn — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>George &amp; Sanjana wedding at The Great Barn — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/rik-and-urvie-chiswick-house/rik-and-urvie-chiswick-house-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Rik &amp; Urvie — Chiswick House Wedding — Heston Photo</image:title>
-      <image:caption>Rik &amp; Urvie — Chiswick House Wedding — Heston Photo</image:caption>
+      <image:title>Rik &amp; Urvie wedding at Chiswick House — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Rik &amp; Urvie wedding at Chiswick House — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/roshni-and-arjun-sattavis-pattidar-centre/roshni-and-arjun-sattavis-pattidar-centre-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Roshni &amp; Arjun — Sattavis pattidar Centre Wedding — Heston Photo</image:title>
-      <image:caption>Roshni &amp; Arjun — Sattavis pattidar Centre Wedding — Heston Photo</image:caption>
+      <image:title>Roshni &amp; Arjun wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Roshni &amp; Arjun wedding at Sattavis Pattidar Centre — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/weddings/ektaa-and-hiten-brent-town-hall/ektaa-and-hiten-brent-town-hall-asian-wedding-photography-cover.jpg</image:loc>
-      <image:title>Ektaa &amp; Hiten — Brent Town Hall Wedding — Heston Photo</image:title>
-      <image:caption>Ektaa &amp; Hiten — Brent Town Hall Wedding — Heston Photo</image:caption>
+      <image:title>Ektaa &amp; Hiten wedding at Brent Town Hall — Asian wedding photography by Heston Photo</image:title>
+      <image:caption>Ektaa &amp; Hiten wedding at Brent Town Hall — Asian wedding photography by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/valisha-and-priyesh-st-pauls-cathedral/valisha-and-priyesh-st-pauls-cathedral-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Valisha &amp; Priyesh — St Paul&amp;#x27;s Cathedral Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Valisha &amp; Priyesh — St Paul&amp;#x27;s Cathedral Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Valisha &amp; Priyesh pre-wedding shoot at St Paul</image:title>
+      <image:caption>Valisha &amp; Priyesh pre-wedding shoot at St Paul</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/karishma-and-asheesh-chiswick-house/karishma-and-asheesh-chiswick-house-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Karishma &amp; Asheesh — Chiswick House Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Karishma &amp; Asheesh — Chiswick House Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Karishma &amp; Asheesh pre-wedding shoot at Chiswick House by Heston Photo</image:title>
+      <image:caption>Karishma &amp; Asheesh pre-wedding shoot at Chiswick House by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/aswanee-and-pravin-tower-bridge/aswanee-and-pravin-tower-bridge-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Aswanee &amp; Pravin — Tower Bridge Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Aswanee &amp; Pravin — Tower Bridge Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Aswanee &amp; Pravin pre-wedding shoot at Tower Bridge by Heston Photo</image:title>
+      <image:caption>Aswanee &amp; Pravin pre-wedding shoot at Tower Bridge by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/sarina-and-amardeep-virginia-waters/sarina-and-amardeep-virginia-waters-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Sarina &amp; Amardeep — Virginia Waters Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Sarina &amp; Amardeep — Virginia Waters Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Sarina &amp; Amardeep pre-wedding shoot at Virginia Waters by Heston Photo</image:title>
+      <image:caption>Sarina &amp; Amardeep pre-wedding shoot at Virginia Waters by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/poonam-and-rahul/poonam-and-rahul-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Poonam &amp; Rahul Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Poonam &amp; Rahul Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Poonam &amp; Rahul pre-wedding shoot by Heston Photo</image:title>
+      <image:caption>Poonam &amp; Rahul pre-wedding shoot by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/jagroop-and-parmesh-central-london/jagroop-and-parmesh-central-london-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Jagroop &amp; Parmesh — Central London Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Jagroop &amp; Parmesh — Central London Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Jagroop &amp; Parmesh pre-wedding shoot at Central London by Heston Photo</image:title>
+      <image:caption>Jagroop &amp; Parmesh pre-wedding shoot at Central London by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/vijay-and-umisha-virginia-waters/vijay-and-umisha-virginia-waters-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Vijay &amp; Umisha — Virginia Waters Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Vijay &amp; Umisha — Virginia Waters Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Vijay &amp; Umisha pre-wedding shoot at Virginia Waters by Heston Photo</image:title>
+      <image:caption>Vijay &amp; Umisha pre-wedding shoot at Virginia Waters by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/pre-wedding/jayen-and-dhruvi-holland-park/jayen-and-dhruvi-holland-park-pre-wedding-shoot-cover.jpg</image:loc>
-      <image:title>Jayen &amp; Dhruvi — Holland Park Pre-Wedding Shoot — Heston Photo</image:title>
-      <image:caption>Jayen &amp; Dhruvi — Holland Park Pre-Wedding Shoot — Heston Photo</image:caption>
+      <image:title>Jayen &amp; Dhruvi pre-wedding shoot at Holland Park by Heston Photo</image:title>
+      <image:caption>Jayen &amp; Dhruvi pre-wedding shoot at Holland Park by Heston Photo</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://hestonphoto.co.uk/images/gallery/heston-photo-asian-wedding-gallery-001.jpg</image:loc>
@@ -533,7 +833,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-aswanee-and-pravin-tower-bridge.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -639,7 +939,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-jagroop-and-parmesh-central-london.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -750,7 +1050,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-jayen-and-dhruvi-holland-park.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -826,7 +1126,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-karishma-and-asheesh-chiswick-house.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -967,7 +1267,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-poonam-and-rahul.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1043,7 +1343,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-sarina-and-amardeep-virginia-waters.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1124,7 +1424,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-shoots.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1165,7 +1465,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-valisha-and-priyesh-st-pauls-cathedral.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1286,7 +1586,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/pre-wedding-vijay-and-umisha-virginia-waters.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1397,13 +1697,13 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/privacy.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/small-gurdwara-wedding-anand-karaj.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -1419,13 +1719,13 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/terms.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-dil-and-aashni-manor-of-groves.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1801,7 +2101,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-ektaa-and-hiten-brent-town-hall.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -1927,7 +2227,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-gagan-and-ashni-offley-place.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -2093,7 +2393,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-george-and-sanjana-the-great-barn.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -2339,7 +2639,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-harsh-and-riana-willesden-temple.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -2795,7 +3095,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-harshil-and-mitisha-london.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -3106,7 +3406,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-jag-and-sara-havelock-gurdwara.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -3367,7 +3667,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-karishma-and-asheesh-oshwal-centre.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -3598,7 +3898,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-krishna-and-rishi-kew-gardens.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -3804,7 +4104,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-pavan-and-asha-sattavis-pattidar-centre.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -3985,7 +4285,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-pavan-and-chandni-shendish-manor.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -4256,7 +4556,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-photography.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -4292,7 +4592,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-raj-and-priya-east-side-rooms.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -4873,7 +5173,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-rik-and-urvie-chiswick-house.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -5049,7 +5349,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-roshni-and-arjun-sattavis-pattidar-centre.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -5230,7 +5530,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-shreeya-and-hiral-cyprus.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -5721,7 +6021,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-vandna-and-kiran-willesden-temple.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -6042,7 +6342,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/wedding-vishal-and-tulsi-offley-place.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -6203,7 +6503,7 @@
   </url>
   <url>
     <loc>https://hestonphoto.co.uk/winter-asian-wedding-photography-uk.html</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>

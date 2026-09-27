@@ -1853,6 +1853,7 @@
 
     <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="image-map.js"></script>
     <script>
         if (typeof AOS !== 'undefined') {
             AOS.init({ duration: 1000, once: true, offset: 60, easing: 'ease-out-quart' });
@@ -1898,13 +1899,15 @@
             const grid = document.getElementById('preweddingGrid');
             try {
                 // Reuse early head-fired promise if available
-                let pw = window.__pwPromise ? await window.__pwPromise : null;
+                let pw = window.__pwPromise ? hestonLocalImages(await window.__pwPromise) : null;
                 if (!pw) {
                     const res = await fetch(`${API_BASE_URL}/api/website/preWeddingShoot`);
-                    const result = await res.json();
+                    const result = hestonLocalImages(await res.json());
                     pw = (result && result.success && result.data && result.data.preWeddingShoot) ? result.data.preWeddingShoot : null;
                 }
                 if (pw) {
+                    // <head> cached the expiring S3 URL; keep the self-hosted one for next visit's preload
+                    try { if (pw.heroImageUrl) localStorage.setItem('pwHeroImageUrl', pw.heroImageUrl); } catch (e) {}
                     // Apply hero image — fade out briefly if URL is different from what's showing
                     if (pw.heroImageUrl) {
                         const heroBgImg = document.getElementById('heroBgImg');

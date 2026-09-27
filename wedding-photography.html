@@ -1535,6 +1535,7 @@
 
     <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="image-map.js"></script>
     <script>
         // Init AOS
         if (typeof AOS !== 'undefined') {
@@ -1630,7 +1631,7 @@
             if (!grid) return;
             try {
                 const res = await fetch(`${API_BASE_URL}/api/website/archives`);
-                const result = await res.json();
+                const result = hestonLocalImages(await res.json());
                 const entries = (result && result.success && result.data && result.data.archives && result.data.archives.entries) || [];
                 wpArchivesData = entries;
                 renderWPArchives(entries);
@@ -1883,14 +1884,16 @@
                 // Reuse the early-fired promise from <head> if available; otherwise fetch now
                 let wp = null;
                 if (window.__wpHeroPromise) {
-                    wp = await window.__wpHeroPromise;
+                    wp = hestonLocalImages(await window.__wpHeroPromise);
                 }
                 if (!wp) {
                     const res = await fetch(`${API_BASE_URL}/api/website/weddingPhotography`);
-                    const result = await res.json();
+                    const result = hestonLocalImages(await res.json());
                     if (!result || !result.success || !result.data || !result.data.weddingPhotography) return;
                     wp = result.data.weddingPhotography;
                 }
+                // <head> cached the expiring S3 URL; keep the self-hosted one for next visit's preload
+                try { if (wp.heroImageUrl) localStorage.setItem('wpHeroImageUrl', wp.heroImageUrl); } catch (e) {}
                 if (wp.heroImageUrl) {
                     const heroBgImg = document.getElementById('heroBgImg');
                     if (heroBgImg && heroBgImg.src !== wp.heroImageUrl) {
