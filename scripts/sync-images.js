@@ -34,7 +34,7 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
-const API = 'https://hestonadminapi.edastra.in/api/website';
+const API = 'https://hestonapi.edastra.in/api/website';
 const MAP_FILE = path.join(__dirname, 'image-map.json');
 const CONTENT_FILE = path.join(__dirname, 'site-content.json');
 const RUNTIME_FILE = path.join(ROOT, 'image-map.js');

@@ -42,7 +42,7 @@
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://hestonadminapi.edastra.in" crossorigin>
+    <link rel="preconnect" href="https://hestonapi.edastra.in" crossorigin>
 
     <!-- Preload hero so it appears with first paint -->
     <link rel="preload" as="image" id="heroPreload" href="images/pre-wedding/heston-photo-pre-wedding-shoot-hero.jpg" fetchpriority="high">
@@ -75,7 +75,7 @@
             // else: first direct visit — default fallback preload stays
 
             var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-            var API = isLocal ? 'http://localhost:3000' : 'https://hestonadminapi.edastra.in';
+            var API = isLocal ? 'http://localhost:3000' : 'https://hestonapi.edastra.in';
             window.__pwPromise = fetch(API + '/api/website/preWeddingShoot')
                 .then(function(r) { return r.json(); })
                 .then(function(result) {
@@ -1892,7 +1892,7 @@
         // Pre-Wedding Portfolio Gallery (Archives-style)
         // ============================================
         const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const API_BASE_URL = isLocalhost ? 'http://localhost:3000' : 'https://hestonadminapi.edastra.in';
+        const API_BASE_URL = isLocalhost ? 'http://localhost:3000' : 'https://hestonapi.edastra.in';
 
         let preWeddingPortfolioData = [];
         let currentGalleryImages = [];
